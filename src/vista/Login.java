@@ -182,6 +182,10 @@ public class Login extends javax.swing.JFrame {
         Usuario usuarioLogueado = listaUsuarios.login(user, password);
         if (usuarioLogueado != null) {
             JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitoso!");
+            MenuPrincipal menuPrincipal = new MenuPrincipal(listaUsuarios);
+            menuPrincipal.setVisible(true);
+            menuPrincipal.setLocationRelativeTo(null);
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos. Inicio de sesión fallido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
