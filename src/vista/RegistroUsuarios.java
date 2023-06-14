@@ -259,7 +259,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
             case "Usuario":
                 level = 0;
                 break;
-            case "Admin":
+            case "Administrador":
                 level = 1;
                 break;
         }
