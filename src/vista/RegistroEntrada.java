@@ -6,11 +6,11 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
-public class OlvideContraseña extends javax.swing.JFrame {
+public class RegistroEntrada extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
 
-    public OlvideContraseña(ListaEnlazada listaUsuarios) {
+    public RegistroEntrada(ListaEnlazada listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
         initComponents();
     }
@@ -210,7 +210,7 @@ public class OlvideContraseña extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OlvideContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(() -> {
