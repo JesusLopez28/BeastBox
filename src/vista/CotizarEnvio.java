@@ -36,21 +36,21 @@ public class CotizarEnvio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lbImagen = new javax.swing.JLabel();
         lblOrigen = new javax.swing.JLabel();
-        lbC = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JPasswordField();
+        lblPeso = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         btnRecuperar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lbC1 = new javax.swing.JLabel();
-        lbC2 = new javax.swing.JLabel();
-        comboNivel = new javax.swing.JComboBox();
-        comboPregunta = new javax.swing.JComboBox();
-        txtRespuesta1 = new javax.swing.JTextField();
-        lbR1 = new javax.swing.JLabel();
+        lblLargo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jboxDestino = new javax.swing.JComboBox();
         lblOrigen1 = new javax.swing.JLabel();
         jboxOrigen1 = new javax.swing.JComboBox();
+        SliderPeso = new javax.swing.JSlider();
+        lblPeso1 = new javax.swing.JLabel();
+        SliderAltura = new javax.swing.JSlider();
+        SliderLargo = new javax.swing.JSlider();
+        jLabel3 = new javax.swing.JLabel();
+        SliderAncho = new javax.swing.JSlider();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -72,10 +72,8 @@ public class CotizarEnvio extends javax.swing.JFrame {
         lblOrigen.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lblOrigen.setText("Sucursal de origen:");
 
-        lbC.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbC.setText("Contraseña:");
-
-        txtContraseña.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPeso.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPeso.setText("Peso:");
 
         btnAgregar.setBackground(new java.awt.Color(63, 82, 191));
         btnAgregar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -97,26 +95,8 @@ public class CotizarEnvio extends javax.swing.JFrame {
             }
         });
 
-        lbC1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbC1.setText("Nivel:");
-
-        lbC2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbC2.setText("Pregunta:");
-
-        comboNivel.setBackground(new java.awt.Color(150, 166, 217));
-        comboNivel.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        comboNivel.setForeground(new java.awt.Color(255, 255, 255));
-        comboNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Usuario/Empleado" }));
-
-        comboPregunta.setBackground(new java.awt.Color(150, 166, 217));
-        comboPregunta.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        comboPregunta.setForeground(new java.awt.Color(255, 255, 255));
-        comboPregunta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre de tu primera mascota", "Fecha de cumpleaños de mamá", "En que ciudad naciste", "Lugar dónde fuiste al colegio" }));
-
-        txtRespuesta1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-
-        lbR1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbR1.setText("Respuesta:");
+        lblLargo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblLargo.setText("Largo:");
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("Cotizar Envio");
@@ -127,6 +107,11 @@ public class CotizarEnvio extends javax.swing.JFrame {
         lblOrigen1.setText("Sucursal de destino:");
 
         jboxOrigen1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
+
+        lblPeso1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPeso1.setText("Altura:");
+
+        jLabel3.setText("Ancho:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,24 +136,23 @@ public class CotizarEnvio extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(253, 253, 253))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblOrigen)
-                        .addComponent(lbC)
-                        .addComponent(lbC1)
-                        .addComponent(lbC2)
-                        .addComponent(lbR1)
-                        .addComponent(txtContraseña)
-                        .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboPregunta, 0, 279, Short.MAX_VALUE)
-                        .addComponent(txtRespuesta1))
-                    .addComponent(jboxOrigen1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                    .addComponent(lblOrigen)
+                    .addComponent(lblPeso)
+                    .addComponent(lblLargo)
+                    .addComponent(jboxOrigen1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SliderPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SliderLargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jboxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblOrigen1))
+                    .addComponent(lblOrigen1)
+                    .addComponent(lblPeso1)
+                    .addComponent(SliderAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(SliderAncho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(150, 150, 150))
         );
         jPanel2Layout.setVerticalGroup(
@@ -186,24 +170,24 @@ public class CotizarEnvio extends javax.swing.JFrame {
                     .addComponent(jboxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jboxOrigen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(lbC)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPeso)
+                    .addComponent(lblPeso1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SliderPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SliderAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(lbC1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLargo)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbC2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbR1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SliderLargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SliderAncho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(160, 160, 160)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
                 .addComponent(btnRecuperar)
@@ -268,27 +252,27 @@ public class CotizarEnvio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSlider SliderAltura;
+    private javax.swing.JSlider SliderAncho;
+    private javax.swing.JSlider SliderLargo;
+    private javax.swing.JSlider SliderPeso;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRecuperar;
-    private javax.swing.JComboBox comboNivel;
-    private javax.swing.JComboBox comboPregunta;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox jboxDestino;
     private javax.swing.JComboBox jboxOrigen1;
-    private javax.swing.JLabel lbC;
-    private javax.swing.JLabel lbC1;
-    private javax.swing.JLabel lbC2;
     private javax.swing.JLabel lbImagen;
     private javax.swing.JLabel lbR;
-    private javax.swing.JLabel lbR1;
+    private javax.swing.JLabel lblLargo;
     private javax.swing.JLabel lblOrigen;
     private javax.swing.JLabel lblOrigen1;
-    private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblPeso1;
     private javax.swing.JTextField txtRespuesta;
-    private javax.swing.JTextField txtRespuesta1;
     // End of variables declaration//GEN-END:variables
 }
