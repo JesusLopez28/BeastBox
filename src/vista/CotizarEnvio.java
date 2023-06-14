@@ -48,7 +48,9 @@ public class CotizarEnvio extends javax.swing.JFrame {
         txtRespuesta1 = new javax.swing.JTextField();
         lbR1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jboxOrigen = new javax.swing.JComboBox();
+        jboxDestino = new javax.swing.JComboBox();
+        lblOrigen1 = new javax.swing.JLabel();
+        jboxOrigen1 = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -119,7 +121,12 @@ public class CotizarEnvio extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("Cotizar Envio");
 
-        jboxOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
+        jboxDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
+
+        lblOrigen1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblOrigen1.setText("Sucursal de destino:");
+
+        jboxOrigen1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -138,25 +145,31 @@ public class CotizarEnvio extends javax.swing.JFrame {
                         .addComponent(btnRecuperar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(btnAgregar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblOrigen)
-                            .addComponent(lbC)
-                            .addComponent(lbC1)
-                            .addComponent(lbC2)
-                            .addComponent(lbR1)
-                            .addComponent(txtContraseña)
-                            .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboPregunta, 0, 279, Short.MAX_VALUE)
-                            .addComponent(txtRespuesta1)
-                            .addComponent(jboxOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnAgregar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 391, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(253, 253, 253))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblOrigen)
+                        .addComponent(lbC)
+                        .addComponent(lbC1)
+                        .addComponent(lbC2)
+                        .addComponent(lbR1)
+                        .addComponent(txtContraseña)
+                        .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboPregunta, 0, 279, Short.MAX_VALUE)
+                        .addComponent(txtRespuesta1))
+                    .addComponent(jboxOrigen1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jboxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOrigen1))
+                .addGap(150, 150, 150))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,9 +178,13 @@ public class CotizarEnvio extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel2)
                 .addGap(40, 40, 40)
-                .addComponent(lblOrigen)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOrigen)
+                    .addComponent(lblOrigen1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jboxOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jboxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jboxOrigen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(lbC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -200,7 +217,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +277,8 @@ public class CotizarEnvio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JComboBox jboxOrigen;
+    private javax.swing.JComboBox jboxDestino;
+    private javax.swing.JComboBox jboxOrigen1;
     private javax.swing.JLabel lbC;
     private javax.swing.JLabel lbC1;
     private javax.swing.JLabel lbC2;
@@ -268,6 +286,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
     private javax.swing.JLabel lbR;
     private javax.swing.JLabel lbR1;
     private javax.swing.JLabel lblOrigen;
+    private javax.swing.JLabel lblOrigen1;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtRespuesta;
     private javax.swing.JTextField txtRespuesta1;

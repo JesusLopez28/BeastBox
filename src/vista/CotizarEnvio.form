@@ -81,7 +81,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="47" max="32767" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -124,28 +124,36 @@
                               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                               <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblOrigen" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbC" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbC1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbC2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbR1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtContraseña" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboNivel" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboPregunta" alignment="0" pref="279" max="32767" attributes="0"/>
-                                  <Component id="txtRespuesta1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jboxOrigen" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="391" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblOrigen" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbC" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbC1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbC2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbR1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtContraseña" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboNivel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="comboPregunta" alignment="0" pref="279" max="32767" attributes="0"/>
+                              <Component id="txtRespuesta1" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jboxOrigen1" min="-2" pref="212" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jboxDestino" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="lblOrigen1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -156,9 +164,15 @@
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="lblOrigen" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblOrigen1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jboxOrigen" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jboxDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jboxOrigen1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="lbC" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -332,7 +346,29 @@
                 <Property name="text" type="java.lang.String" value="Cotizar Envio"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jboxOrigen">
+            <Component class="javax.swing.JComboBox" name="jboxDestino">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="Guadalajara"/>
+                    <StringItem index="1" value="Monterrey"/>
+                    <StringItem index="2" value="Tampico"/>
+                    <StringItem index="3" value="Canc&#xfa;n"/>
+                    <StringItem index="4" value="Puerto Vallarta"/>
+                    <StringItem index="5" value="Mazatl&#xe1;n"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblOrigen1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sucursal de destino:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jboxOrigen1">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="6">
