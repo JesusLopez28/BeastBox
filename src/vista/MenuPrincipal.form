@@ -33,16 +33,25 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itemRegistrarUsuarios">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemActualizarInfo">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Actualizar Informaci&#xf3;n"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemCerrarSesion">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
               </Properties>
             </MenuItem>
@@ -58,6 +67,56 @@
               <Font name="Nirmala UI" size="18" style="1"/>
             </Property>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="itemCotizar">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cotizar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemCancelar">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemRegistrarEntrada">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Registrar entrada"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemRegistrarEnvio">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Registrar env&#xed;o"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemRegistrarLlegada">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Registrar llegada"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemRegistrarSalida">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Registrar salida"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuListas">
           <Properties>
@@ -69,6 +128,24 @@
               <Font name="Nirmala UI" size="18" style="1"/>
             </Property>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="itemListaCostos">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Agregar lista de costos"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemListaCostosDetalle">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Aregar elemento a lista de costos"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuReportes">
           <Properties>
@@ -80,6 +157,40 @@
               <Font name="Nirmala UI" size="18" style="1"/>
             </Property>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="itemReporteUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Reporte usuarios"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemReporteEnvios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Reporte env&#xed;os"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemReporteLCostos">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Reporte lista de costos"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemReporteLCostosDetalle">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Nirmala UI" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Reporte lista de costos detallada"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

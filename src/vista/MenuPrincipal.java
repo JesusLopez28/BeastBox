@@ -31,8 +31,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         itemActualizarInfo = new javax.swing.JMenuItem();
         itemCerrarSesion = new javax.swing.JMenuItem();
         menuEnvios = new javax.swing.JMenu();
+        itemCotizar = new javax.swing.JMenuItem();
+        itemCancelar = new javax.swing.JMenuItem();
+        itemRegistrarEntrada = new javax.swing.JMenuItem();
+        itemRegistrarEnvio = new javax.swing.JMenuItem();
+        itemRegistrarLlegada = new javax.swing.JMenuItem();
+        itemRegistrarSalida = new javax.swing.JMenuItem();
         menuListas = new javax.swing.JMenu();
+        itemListaCostos = new javax.swing.JMenuItem();
+        itemListaCostosDetalle = new javax.swing.JMenuItem();
         menuReportes = new javax.swing.JMenu();
+        itemReporteUsuarios = new javax.swing.JMenuItem();
+        itemReporteEnvios = new javax.swing.JMenuItem();
+        itemReporteLCostos = new javax.swing.JMenuItem();
+        itemReporteLCostosDetalle = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(150, 166, 217));
@@ -60,12 +72,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuUsuarios.setText("Usuarios");
         menuUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
 
+        itemRegistrarUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemRegistrarUsuarios.setText("Registrar Usuario");
         menuUsuarios.add(itemRegistrarUsuarios);
 
+        itemActualizarInfo.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemActualizarInfo.setText("Actualizar Información");
         menuUsuarios.add(itemActualizarInfo);
 
+        itemCerrarSesion.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemCerrarSesion.setText("Cerrar Sesión");
         menuUsuarios.add(itemCerrarSesion);
 
@@ -74,16 +89,67 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuEnvios.setForeground(new java.awt.Color(255, 255, 255));
         menuEnvios.setText("Envíos");
         menuEnvios.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
+
+        itemCotizar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemCotizar.setText("Cotizar");
+        menuEnvios.add(itemCotizar);
+
+        itemCancelar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemCancelar.setText("Cancelar");
+        menuEnvios.add(itemCancelar);
+
+        itemRegistrarEntrada.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemRegistrarEntrada.setText("Registrar entrada");
+        menuEnvios.add(itemRegistrarEntrada);
+
+        itemRegistrarEnvio.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemRegistrarEnvio.setText("Registrar envío");
+        menuEnvios.add(itemRegistrarEnvio);
+
+        itemRegistrarLlegada.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemRegistrarLlegada.setText("Registrar llegada");
+        menuEnvios.add(itemRegistrarLlegada);
+
+        itemRegistrarSalida.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemRegistrarSalida.setText("Registrar salida");
+        menuEnvios.add(itemRegistrarSalida);
+
         jMenuBar1.add(menuEnvios);
 
         menuListas.setForeground(new java.awt.Color(255, 255, 255));
         menuListas.setText("Lista de costos");
         menuListas.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
+
+        itemListaCostos.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemListaCostos.setText("Agregar lista de costos");
+        menuListas.add(itemListaCostos);
+
+        itemListaCostosDetalle.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemListaCostosDetalle.setText("Aregar elemento a lista de costos");
+        menuListas.add(itemListaCostosDetalle);
+
         jMenuBar1.add(menuListas);
 
         menuReportes.setForeground(new java.awt.Color(255, 255, 255));
         menuReportes.setText("Reportes");
         menuReportes.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
+
+        itemReporteUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemReporteUsuarios.setText("Reporte usuarios");
+        menuReportes.add(itemReporteUsuarios);
+
+        itemReporteEnvios.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemReporteEnvios.setText("Reporte envíos");
+        menuReportes.add(itemReporteEnvios);
+
+        itemReporteLCostos.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemReporteLCostos.setText("Reporte lista de costos");
+        menuReportes.add(itemReporteLCostos);
+
+        itemReporteLCostosDetalle.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemReporteLCostosDetalle.setText("Reporte lista de costos detallada");
+        menuReportes.add(itemReporteLCostosDetalle);
+
         jMenuBar1.add(menuReportes);
 
         setJMenuBar(jMenuBar1);
@@ -126,8 +192,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JButton btnRecuperar1;
     private javax.swing.JMenuItem itemActualizarInfo;
+    private javax.swing.JMenuItem itemCancelar;
     private javax.swing.JMenuItem itemCerrarSesion;
+    private javax.swing.JMenuItem itemCotizar;
+    private javax.swing.JMenuItem itemListaCostos;
+    private javax.swing.JMenuItem itemListaCostosDetalle;
+    private javax.swing.JMenuItem itemRegistrarEntrada;
+    private javax.swing.JMenuItem itemRegistrarEnvio;
+    private javax.swing.JMenuItem itemRegistrarLlegada;
+    private javax.swing.JMenuItem itemRegistrarSalida;
     private javax.swing.JMenuItem itemRegistrarUsuarios;
+    private javax.swing.JMenuItem itemReporteEnvios;
+    private javax.swing.JMenuItem itemReporteLCostos;
+    private javax.swing.JMenuItem itemReporteLCostosDetalle;
+    private javax.swing.JMenuItem itemReporteUsuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
