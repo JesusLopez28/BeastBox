@@ -8,6 +8,7 @@ public class ListaCostos {
     private boolean paqueteFragil;
     private int excesoPeso;
     private boolean sobreDimension;
+    ListaCostos Costosiguiente;
 
     public ListaCostos(String nombre, int areaRemota, int seguro, boolean paqueteFragil, int excesoPeso, boolean sobreDimension) {
         this.nombre = nombre;
@@ -66,5 +67,12 @@ public class ListaCostos {
         this.sobreDimension = sobreDimension;
     }
     
+    public ListaCostos getCostosiguiente() {
+        return Costosiguiente;
+    }
+
+    public void setCostosiguiente(ListaCostos Costosiguiente) {
+        this.Costosiguiente = Costosiguiente;
+    }
     
 }

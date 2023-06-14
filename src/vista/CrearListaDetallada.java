@@ -224,7 +224,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-
+            
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     public static void main(String args[]) {

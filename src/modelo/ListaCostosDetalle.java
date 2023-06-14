@@ -8,6 +8,10 @@ public class ListaCostosDetalle{
     private String servicio;
     private double precio;
     private String listaCostos;
+    ListaCostosDetalle CostoDetallesiguiente;
+
+    
+    
 
     public ListaCostosDetalle(double pesoMinimo, double pesoMaximo, int zona, String servicio, double precio, String listaCostos) {
         this.pesoMinimo = pesoMinimo;
@@ -66,5 +70,12 @@ public class ListaCostosDetalle{
         this.listaCostos = listaCostos;
     }
     
+    public ListaCostosDetalle getCostoDetallesiguiente() {
+        return CostoDetallesiguiente;
+    }
+
+    public void setCostoDetallesiguiente(ListaCostosDetalle CostoDetallesiguiente) {
+        this.CostoDetallesiguiente = CostoDetallesiguiente;
+    }
     
 }
