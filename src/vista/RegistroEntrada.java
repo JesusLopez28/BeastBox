@@ -1,17 +1,19 @@
 package vista;
 
-import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import modelo.Usuario;
+import modelo.Recibidos;
 
 public class RegistroEntrada extends javax.swing.JFrame {
 
-    public RegistroEntrada() {
+    Pila pilaRecibidos;
+
+    public RegistroEntrada(Pila pilaRecibidos) {
+        this.pilaRecibidos = pilaRecibidos;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -37,7 +39,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         lbImagen = new javax.swing.JLabel();
         lbU = new javax.swing.JLabel();
         txtFechaListo = new javax.swing.JTextField();
-        btnRestablecer = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         lbR = new javax.swing.JLabel();
         txtNumGuia = new javax.swing.JTextField();
@@ -68,13 +70,13 @@ public class RegistroEntrada extends javax.swing.JFrame {
             }
         });
 
-        btnRestablecer.setBackground(new java.awt.Color(63, 82, 191));
-        btnRestablecer.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        btnRestablecer.setForeground(new java.awt.Color(255, 255, 255));
-        btnRestablecer.setText("REGISTRAR");
-        btnRestablecer.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setBackground(new java.awt.Color(63, 82, 191));
+        btnRegistrar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestablecerActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
 
@@ -135,7 +137,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
                 .addContainerGap(118, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRestablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -160,7 +162,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
                     .addComponent(txtFechaListo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(btnRestablecer)
+                .addComponent(btnRegistrar)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -187,16 +189,11 @@ public class RegistroEntrada extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -204,12 +201,15 @@ public class RegistroEntrada extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRestablecerActionPerformed
+        String numero = "", FechaLlegada = "", HoraLlegada = "";
+        pilaRecibidos.push(new Recibidos(numero, FechaLlegada, HoraLlegada, null, null));
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtFechaListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaListoActionPerformed
         // TODO add your handling code here:
@@ -236,8 +236,8 @@ public class RegistroEntrada extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton btnRestablecer;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

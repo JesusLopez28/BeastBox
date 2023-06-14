@@ -2,28 +2,18 @@ package modelo;
 
 public class Recibidos{
 
-    private int id;
     private String numeroG;
     private String FechaLlegada;
     private String HoraLlegada;
     private String FechaEntrega;
     private String HoraEntrega;
 
-    public Recibidos(int id, String numeroG, String FechaLlegada, String HoraLlegada, String FechaEntrega, String HoraEntrega) {
-        this.id = id;
+    public Recibidos(String numeroG, String FechaLlegada, String HoraLlegada, String FechaEntrega, String HoraEntrega) {
         this.numeroG = numeroG;
         this.FechaLlegada = FechaLlegada;
         this.HoraLlegada = HoraLlegada;
         this.FechaEntrega = FechaEntrega;
         this.HoraEntrega = HoraEntrega;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNumeroG() {
