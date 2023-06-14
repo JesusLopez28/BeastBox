@@ -35,8 +35,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lbImagen = new javax.swing.JLabel();
-        lbU = new javax.swing.JLabel();
-        txtUser = new javax.swing.JTextField();
+        lblOrigen = new javax.swing.JLabel();
         lbC = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
         btnAgregar = new javax.swing.JButton();
@@ -49,6 +48,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
         txtRespuesta1 = new javax.swing.JTextField();
         lbR1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jboxOrigen = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -67,10 +67,8 @@ public class CotizarEnvio extends javax.swing.JFrame {
 
         lbImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/beastBoxIcon.png"))); // NOI18N
 
-        lbU.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbU.setText("Usuario:");
-
-        txtUser.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblOrigen.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblOrigen.setText("Sucursal de origen:");
 
         lbC.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbC.setText("Contraseña:");
@@ -119,7 +117,9 @@ public class CotizarEnvio extends javax.swing.JFrame {
         lbR1.setText("Respuesta:");
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
-        jLabel2.setText("REGISTRO DE USUARIOS");
+        jLabel2.setText("Cotizar Envio");
+
+        jboxOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -134,38 +134,41 @@ public class CotizarEnvio extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbU)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbC)
-                            .addComponent(lbC1)
-                            .addComponent(lbC2)
-                            .addComponent(lbR1)
-                            .addComponent(txtUser)
-                            .addComponent(txtContraseña)
-                            .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtRespuesta1)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(btnRecuperar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(btnAgregar)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addComponent(btnAgregar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblOrigen)
+                            .addComponent(lbC)
+                            .addComponent(lbC1)
+                            .addComponent(lbC2)
+                            .addComponent(lbR1)
+                            .addComponent(txtContraseña)
+                            .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboPregunta, 0, 279, Short.MAX_VALUE)
+                            .addComponent(txtRespuesta1)
+                            .addComponent(jboxOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 391, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(253, 253, 253))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(lbImagen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel2)
-                .addGap(39, 39, 39)
-                .addComponent(lbU)
+                .addGap(40, 40, 40)
+                .addComponent(lblOrigen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jboxOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(lbC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,7 +190,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
                 .addComponent(btnRecuperar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -197,12 +200,12 @@ public class CotizarEnvio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
@@ -257,16 +260,16 @@ public class CotizarEnvio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox jboxOrigen;
     private javax.swing.JLabel lbC;
     private javax.swing.JLabel lbC1;
     private javax.swing.JLabel lbC2;
     private javax.swing.JLabel lbImagen;
     private javax.swing.JLabel lbR;
     private javax.swing.JLabel lbR1;
-    private javax.swing.JLabel lbU;
+    private javax.swing.JLabel lblOrigen;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtRespuesta;
     private javax.swing.JTextField txtRespuesta1;
-    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
