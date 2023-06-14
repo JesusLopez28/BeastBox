@@ -1,6 +1,6 @@
 package modelo;
 
-public class ListaCostosDetalle extends ListaCostos{
+public class ListaCostosDetalle{
 
     private double pesoMinimo;
     private double pesoMaximo;
@@ -9,8 +9,7 @@ public class ListaCostosDetalle extends ListaCostos{
     private double precio;
     private String listaCostos;
 
-    public ListaCostosDetalle(String nombre, int areaRemota, int seguro, boolean paqueteFragil, int excesoPeso, boolean sobreDimension, double pesoMinimo, double pesoMaximo, int zona, String servicio, double precio, String listaCostos) {
-        super(nombre, areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension);
+    public ListaCostosDetalle(double pesoMinimo, double pesoMaximo, int zona, String servicio, double precio, String listaCostos) {
         this.pesoMinimo = pesoMinimo;
         this.pesoMaximo = pesoMaximo;
         this.zona = zona;
@@ -18,7 +17,6 @@ public class ListaCostosDetalle extends ListaCostos{
         this.precio = precio;
         this.listaCostos = listaCostos;
     }
-
 
     public double getPesoMinimo() {
         return pesoMinimo;

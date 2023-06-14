@@ -1,6 +1,6 @@
 package modelo;
 
-public class Recolecciones extends Envio{
+public class Recolecciones{
 
     private int id;
     private String numeroG;
@@ -9,8 +9,7 @@ public class Recolecciones extends Envio{
     private String fechaPaqueteListo;
     private String horaPaqueteListo;
 
-    public Recolecciones(String fechaPaqueteListo, String horaPaqueteListo, String numeroGuia, String sucursalOrigen, String sucursalDestino, double peso, double alto, double largo, double ancho, String user, String status, int id, String numeroG, String fechaRecoleccion, String horaRecoleccion) {
-        super(numeroGuia, sucursalOrigen, sucursalDestino, peso, alto, largo, ancho, user, status);
+    public Recolecciones(int id, String numeroG, String fechaRecoleccion, String horaRecoleccion, String fechaPaqueteListo, String horaPaqueteListo) {
         this.id = id;
         this.numeroG = numeroG;
         this.fechaRecoleccion = fechaRecoleccion;

@@ -1,6 +1,6 @@
 package modelo;
 
-public class Recibidos extends Envio{
+public class Recibidos{
 
     private int id;
     private String numeroG;
@@ -9,8 +9,7 @@ public class Recibidos extends Envio{
     private String FechaEntrega;
     private String HoraEntrega;
 
-    public Recibidos(String numeroGuia, String sucursalOrigen, String sucursalDestino, double peso, double alto, double largo, double ancho, String user, String status, int id, String numeroG, String FechaLlegada, String HoraLlegada, String FechaEntrega, String HoraEntrega ) {
-        super(numeroGuia, sucursalOrigen, sucursalDestino, peso, alto, largo, ancho, user, status);
+    public Recibidos(int id, String numeroG, String FechaLlegada, String HoraLlegada, String FechaEntrega, String HoraEntrega) {
         this.id = id;
         this.numeroG = numeroG;
         this.FechaLlegada = FechaLlegada;

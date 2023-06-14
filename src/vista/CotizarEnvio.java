@@ -108,11 +108,13 @@ public class CotizarEnvio extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("Cotizar Envio");
 
+        jboxDestino.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jboxDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
 
         lblOrigen1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lblOrigen1.setText("Sucursal de destino:");
 
+        jboxOrigen1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jboxOrigen1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
 
         SliderPeso.setMaximum(130);
