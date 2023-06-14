@@ -11,7 +11,7 @@ public class Login extends javax.swing.JFrame {
     ListaEnlazada listaUsuarios;
 
     public Login() {
-        listaUsuarios = new ListaEnlazada(5);
+        listaUsuarios = new ListaEnlazada(20);
 
         Usuario usuario1 = new Usuario("Jesus", "3452", "Nombre de tu primera mascota", "Mylo", 1, "MAYOREO");
         Usuario usuario2 = new Usuario("Ivan", "1234", "En que ciudad naciste", "Guadalajara", 0, "MENUDEO");
@@ -182,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         Usuario usuarioLogueado = listaUsuarios.login(user, password);
         if (usuarioLogueado != null) {
             JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitoso!");
-            MenuPrincipal menuPrincipal = new MenuPrincipal(listaUsuarios);
+            MenuPrincipal menuPrincipal = new MenuPrincipal(listaUsuarios, user);
             menuPrincipal.setVisible(true);
             menuPrincipal.setLocationRelativeTo(null);
             this.dispose();

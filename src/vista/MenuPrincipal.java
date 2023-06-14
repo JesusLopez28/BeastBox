@@ -6,13 +6,17 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
+    String user;
 
-    public MenuPrincipal(ListaEnlazada listaUsuarios) {
+    public MenuPrincipal(ListaEnlazada listaUsuarios, String user) {
         this.listaUsuarios = listaUsuarios;
+        this.user = user;
         initComponents();
         String cursor = "src/imagenes/seleccion.png";
 
@@ -21,6 +25,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
 
         this.setCursor(cursorC);
+
+        Usuario usuario = (Usuario) listaUsuarios.buscarPorAtributo(user);
+
+        if (usuario != null && usuario.getLevel() == 1) {
+            itemActualizarInfo.setVisible(true);
+            itemRegistrarUsuarios.setVisible(true);
+            menuListas.setVisible(true);
+            menuReportes.setVisible(true);
+
+        } else {
+            itemActualizarInfo.setVisible(false);
+            itemRegistrarUsuarios.setVisible(false);
+            menuListas.setVisible(false);
+            menuReportes.setVisible(false);
+        }
     }
 
     @Override
@@ -126,6 +145,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemCerrarSesion.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemCerrarSesion.setText("Cerrar Sesión");
+        itemCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarSesionActionPerformed(evt);
+            }
+        });
         menuUsuarios.add(itemCerrarSesion);
 
         jMenuBar1.add(menuUsuarios);
@@ -235,6 +259,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         destPane.add(reporteEnvios);
         reporteEnvios.show();
     }//GEN-LAST:event_itemReporteEnviosActionPerformed
+
+    private void itemCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarSesionActionPerformed
+        // TODO add your handling code here:
+        Login login = new Login(listaUsuarios);
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_itemCerrarSesionActionPerformed
 
     public static void main(String args[]) {
         try {
