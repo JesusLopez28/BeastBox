@@ -6,15 +6,15 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
-public class CrearLista extends javax.swing.JFrame {
+public class CrearListaDetallada extends javax.swing.JFrame {
 
    
 
-    public CrearLista() {
+    public CrearListaDetallada() {
   
     }
 
-    public CrearLista(ListaEnlazada listaUsuarios) {
+    public CrearListaDetallada(ListaEnlazada listaUsuarios) {
       
     }
 
@@ -234,7 +234,7 @@ public class CrearLista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CrearLista.class
+            java.util.logging.Logger.getLogger(CrearListaDetallada.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
