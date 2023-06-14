@@ -1,18 +1,23 @@
 package vista;
 
 import controlador.ListaEnlazada;
+import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
 public class CancelarEnvio extends javax.swing.JFrame {
 
-    ListaEnlazada listaUsuarios;
-
-    public CancelarEnvio(ListaEnlazada listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public CancelarEnvio() {
         initComponents();
+
+        String cursor = "src/imagenes/seleccion.png";
+        ImageIcon imgCursor = new ImageIcon(cursor);
+        Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
+        this.setCursor(cursorC);
     }
 
     @Override
@@ -169,10 +174,6 @@ public class CancelarEnvio extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        Login login = new Login(listaUsuarios);
-        login.setVisible(true);
-        login.setLocationRelativeTo(null);
-        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed

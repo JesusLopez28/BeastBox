@@ -1,21 +1,24 @@
 package vista;
 
 import controlador.ListaEnlazada;
+import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
 public class CotizarEnvio extends javax.swing.JFrame {
 
-   
-
     public CotizarEnvio() {
-  
-    }
 
-    public CotizarEnvio(ListaEnlazada listaUsuarios) {
-      
+        initComponents();
+
+        String cursor = "src/imagenes/seleccion.png";
+        ImageIcon imgCursor = new ImageIcon(cursor);
+        Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
+        this.setCursor(cursorC);
     }
 
     @Override
@@ -354,27 +357,27 @@ public class CotizarEnvio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-       
+
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCotizarActionPerformed
-       
+
     }//GEN-LAST:event_btnCotizarActionPerformed
 
     private void SliderPesoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderPesoStateChanged
-       lblKg.setText("Kg: "+SliderPeso.getValue());
+        lblKg.setText("Kg: " + SliderPeso.getValue());
     }//GEN-LAST:event_SliderPesoStateChanged
 
     private void SliderAlturaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderAlturaStateChanged
-        lblm.setText("M: "+SliderAltura.getValue());
+        lblm.setText("M: " + SliderAltura.getValue());
     }//GEN-LAST:event_SliderAlturaStateChanged
 
     private void SliderLargoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderLargoStateChanged
-        lblm2.setText("M: "+SliderLargo.getValue());
+        lblm2.setText("M: " + SliderLargo.getValue());
     }//GEN-LAST:event_SliderLargoStateChanged
 
     private void SliderAnchoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderAnchoStateChanged
-       lblm3.setText("M: "+SliderAncho.getValue());
+        lblm3.setText("M: " + SliderAncho.getValue());
     }//GEN-LAST:event_SliderAnchoStateChanged
 
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed

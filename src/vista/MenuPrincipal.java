@@ -18,14 +18,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.listaUsuarios = listaUsuarios;
         this.user = user;
         initComponents();
+        
         String cursor = "src/imagenes/seleccion.png";
-
         ImageIcon imgCursor = new ImageIcon(cursor);
-
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
-
         this.setCursor(cursorC);
-
+        
         Usuario usuario = (Usuario) listaUsuarios.buscarPorAtributo(user);
 
         if (usuario != null && usuario.getLevel() == 1) {

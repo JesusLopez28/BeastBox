@@ -5,6 +5,11 @@
  */
 package vista;
 
+import java.awt.Cursor;
+import java.awt.Point;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author PC
@@ -16,6 +21,11 @@ public class ReporteUsuarios extends javax.swing.JInternalFrame {
      */
     public ReporteUsuarios() {
         initComponents();
+
+        String cursor = "src/imagenes/seleccion.png";
+        ImageIcon imgCursor = new ImageIcon(cursor);
+        Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
+        this.setCursor(cursorC);
     }
 
     /**

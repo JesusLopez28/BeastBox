@@ -1,8 +1,11 @@
 package vista;
 
 import controlador.ListaEnlazada;
+import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
@@ -20,6 +23,11 @@ public class Login extends javax.swing.JFrame {
         listaUsuarios.insertar(usuario2);
         listaUsuarios.insertar(usuario3);
         initComponents();
+
+        String cursor = "src/imagenes/seleccion.png";
+        ImageIcon imgCursor = new ImageIcon(cursor);
+        Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
+        this.setCursor(cursorC);
     }
 
     public Login(ListaEnlazada listaUsuarios) {

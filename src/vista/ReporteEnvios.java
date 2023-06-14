@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package vista;
+
+import java.awt.Cursor;
+import java.awt.Point;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,6 +21,11 @@ public class ReporteEnvios extends javax.swing.JInternalFrame {
      */
     public ReporteEnvios() {
         initComponents();
+
+        String cursor = "src/imagenes/seleccion.png";
+        ImageIcon imgCursor = new ImageIcon(cursor);
+        Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
+        this.setCursor(cursorC);
     }
 
     /**
