@@ -1,8 +1,11 @@
 package vista;
 
 import controlador.ListaEnlazada;
+import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -11,6 +14,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal(ListaEnlazada listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
         initComponents();
+        String cursor = "src/imagenes/seleccion.png";
+
+        ImageIcon imgCursor = new ImageIcon(cursor);
+
+        Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
+
+        this.setCursor(cursorC);
     }
 
     @Override
@@ -64,7 +74,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         jMenuBar1.setBackground(new java.awt.Color(67, 90, 217));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
 
