@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import modelo.Usuario;
 
 public class CrearLista extends javax.swing.JFrame {
-
+    
     public CrearLista() {
 
         initComponents();
@@ -43,7 +43,6 @@ public class CrearLista extends javax.swing.JFrame {
         lbC = new javax.swing.JLabel();
         txtAreaRemota = new javax.swing.JPasswordField();
         btnAgregar = new javax.swing.JButton();
-        btnRecuperar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbC1 = new javax.swing.JLabel();
         txtPaqueteFragil = new javax.swing.JTextField();
@@ -51,6 +50,7 @@ public class CrearLista extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtSeguro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -89,16 +89,6 @@ public class CrearLista extends javax.swing.JFrame {
             }
         });
 
-        btnRecuperar.setBackground(new java.awt.Color(150, 166, 217));
-        btnRecuperar.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        btnRecuperar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRecuperar.setText("OLVIDÉ MI CONTRASEÑA");
-        btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRecuperarActionPerformed(evt);
-            }
-        });
-
         lbC1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbC1.setText("Seguro:");
 
@@ -114,6 +104,16 @@ public class CrearLista extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paquetes (1).png"))); // NOI18N
         jLabel3.setText(" ");
+
+        btnRegresar.setBackground(new java.awt.Color(150, 166, 217));
+        btnRegresar.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -141,14 +141,14 @@ public class CrearLista extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
+                .addContainerGap(201, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btnAgregar)
                         .addGap(183, 183, 183))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnRecuperar)
-                        .addGap(152, 152, 152))))
+                        .addComponent(btnRegresar)
+                        .addGap(194, 194, 194))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +182,7 @@ public class CrearLista extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
-                .addComponent(btnRecuperar)
+                .addComponent(btnRegresar)
                 .addGap(20, 20, 20))
         );
 
@@ -219,13 +219,15 @@ public class CrearLista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
-
-    }//GEN-LAST:event_btnRecuperarActionPerformed
-
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
+
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -247,7 +249,7 @@ public class CrearLista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnRecuperar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

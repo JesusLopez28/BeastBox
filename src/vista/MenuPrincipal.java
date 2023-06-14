@@ -1,29 +1,34 @@
 package vista;
 
 import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import modelo.Usuario;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
+    Pila pilaEnvios = new Pila(500);
+    Pila pilaCostos = new Pila(50);
+    Pila pilaCostosDetalle = new Pila(50);
+    Pila pilaRecibidos = new Pila(500);
+    Pila pilaRecolecciones = new Pila(500);
     String user;
 
     public MenuPrincipal(ListaEnlazada listaUsuarios, String user) {
         this.listaUsuarios = listaUsuarios;
         this.user = user;
         initComponents();
-        
+
         String cursor = "src/imagenes/seleccion.png";
         ImageIcon imgCursor = new ImageIcon(cursor);
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
         this.setCursor(cursorC);
-        
+
         Usuario usuario = (Usuario) listaUsuarios.buscarPorAtributo(user);
 
         if (usuario != null && usuario.getLevel() == 1) {
@@ -135,6 +140,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemRegistrarUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemRegistrarUsuarios.setText("Registrar Usuario");
+        itemRegistrarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarUsuariosActionPerformed(evt);
+            }
+        });
         menuUsuarios.add(itemRegistrarUsuarios);
 
         itemActualizarInfo.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -188,6 +198,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemListaCostos.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemListaCostos.setText("Agregar lista de costos");
+        itemListaCostos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemListaCostosActionPerformed(evt);
+            }
+        });
         menuListas.add(itemListaCostos);
 
         itemListaCostosDetalle.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -265,6 +280,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         login.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_itemCerrarSesionActionPerformed
+
+    private void itemRegistrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarUsuariosActionPerformed
+        // TODO add your handling code here:
+        RegistroUsuarios registroUsuarios = new RegistroUsuarios(listaUsuarios);
+        registroUsuarios.setVisible(true);
+        registroUsuarios.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itemRegistrarUsuariosActionPerformed
+
+    private void itemListaCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListaCostosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemListaCostosActionPerformed
 
     public static void main(String args[]) {
         try {

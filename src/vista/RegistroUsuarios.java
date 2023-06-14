@@ -11,8 +11,10 @@ import modelo.Usuario;
 
 public class RegistroUsuarios extends javax.swing.JFrame {
 
-    public RegistroUsuarios() {
+    ListaEnlazada listaUsuarios;
 
+    public RegistroUsuarios(ListaEnlazada listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -43,15 +45,17 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         lbC = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
         btnAgregar = new javax.swing.JButton();
-        btnRecuperar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbC1 = new javax.swing.JLabel();
         lbC2 = new javax.swing.JLabel();
         comboNivel = new javax.swing.JComboBox();
         comboPregunta = new javax.swing.JComboBox();
-        txtRespuesta1 = new javax.swing.JTextField();
-        lbR1 = new javax.swing.JLabel();
+        txtRes = new javax.swing.JTextField();
+        lbLC = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtLista = new javax.swing.JTextField();
+        lbR2 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -90,16 +94,6 @@ public class RegistroUsuarios extends javax.swing.JFrame {
             }
         });
 
-        btnRecuperar.setBackground(new java.awt.Color(150, 166, 217));
-        btnRecuperar.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        btnRecuperar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRecuperar.setText("OLVIDÉ MI CONTRASEÑA");
-        btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRecuperarActionPerformed(evt);
-            }
-        });
-
         lbC1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbC1.setText("Nivel:");
 
@@ -109,20 +103,35 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         comboNivel.setBackground(new java.awt.Color(150, 166, 217));
         comboNivel.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         comboNivel.setForeground(new java.awt.Color(255, 255, 255));
-        comboNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Usuario/Empleado" }));
+        comboNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Usuario", "Administrador" }));
 
         comboPregunta.setBackground(new java.awt.Color(150, 166, 217));
         comboPregunta.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         comboPregunta.setForeground(new java.awt.Color(255, 255, 255));
         comboPregunta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre de tu primera mascota", "Fecha de cumpleaños de mamá", "En que ciudad naciste", "Lugar dónde fuiste al colegio" }));
 
-        txtRespuesta1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtRes.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
-        lbR1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbR1.setText("Respuesta:");
+        lbLC.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbLC.setText("Lista de costos:");
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("REGISTRO DE USUARIOS");
+
+        txtLista.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+
+        lbR2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lbR2.setText("Respuesta:");
+
+        btnRegresar.setBackground(new java.awt.Color(150, 166, 217));
+        btnRegresar.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -135,27 +144,28 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbU)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbC)
+                        .addComponent(jLabel1)
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbC1)
-                            .addComponent(lbC2)
-                            .addComponent(lbR1)
-                            .addComponent(txtUser)
-                            .addComponent(txtContraseña)
-                            .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtRespuesta1)))
+                            .addComponent(lbR2)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lbU)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbC)
+                                .addComponent(lbC2)
+                                .addComponent(lbLC)
+                                .addComponent(txtUser)
+                                .addComponent(txtContraseña)
+                                .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtRes)
+                                .addComponent(txtLista, javax.swing.GroupLayout.Alignment.TRAILING))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(btnRecuperar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(btnAgregar)))
+                        .addGap(131, 131, 131)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregar)
+                            .addComponent(btnRegresar))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,14 +178,17 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                 .addComponent(lbU)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(lbC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(lbC1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lbC1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -183,14 +196,18 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lbR1)
+                .addComponent(lbR2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbLC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
-                .addComponent(btnRecuperar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(btnRegresar)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -207,7 +224,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,19 +235,47 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
-
-    }//GEN-LAST:event_btnRecuperarActionPerformed
-
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        String user, contraseña, respuesta, lista;
+        String pregunta = "";
+        String seleccion = comboNivel.getSelectedItem().toString();
+        int level = 0;
+        user = txtUser.getText();
+        contraseña = txtContraseña.getText();
+        respuesta = txtRes.getText();
+        lista = txtLista.getText();
+        if (comboPregunta.getSelectedItem() != null) {
+            pregunta = (String) comboPregunta.getSelectedItem();
+        }
+        switch (seleccion) {
+            case "Usuario":
+                level = 0;
+                break;
+            case "Admin":
+                level = 1;
+                break;
+        }
+        if (!user.isEmpty() && !contraseña.isEmpty() && !respuesta.isEmpty() && !lista.isEmpty()) {
+            listaUsuarios.insertar(new Usuario(user, contraseña, pregunta, respuesta, level, lista));
+            JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -252,7 +297,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnRecuperar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox comboNivel;
     private javax.swing.JComboBox comboPregunta;
     private javax.swing.JComboBox jComboBox1;
@@ -264,12 +309,14 @@ public class RegistroUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel lbC1;
     private javax.swing.JLabel lbC2;
     private javax.swing.JLabel lbImagen;
+    private javax.swing.JLabel lbLC;
     private javax.swing.JLabel lbR;
-    private javax.swing.JLabel lbR1;
+    private javax.swing.JLabel lbR2;
     private javax.swing.JLabel lbU;
     private javax.swing.JPasswordField txtContraseña;
+    private javax.swing.JTextField txtLista;
+    private javax.swing.JTextField txtRes;
     private javax.swing.JTextField txtRespuesta;
-    private javax.swing.JTextField txtRespuesta1;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

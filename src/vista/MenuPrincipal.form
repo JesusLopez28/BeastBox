@@ -38,6 +38,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemRegistrarUsuariosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemActualizarInfo">
               <Properties>
@@ -139,6 +142,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Agregar lista de costos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemListaCostosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemListaCostosDetalle">
               <Properties>
