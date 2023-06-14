@@ -57,6 +57,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         itemReporteEnvios = new javax.swing.JMenuItem();
         itemReporteLCostos = new javax.swing.JMenuItem();
         itemReporteLCostosDetalle = new javax.swing.JMenuItem();
+        itemReporteRecolecciones = new javax.swing.JMenuItem();
+        itemReporteRecibidas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(150, 166, 217));
@@ -178,6 +180,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         itemReporteLCostosDetalle.setText("Reporte lista de costos detallada");
         menuReportes.add(itemReporteLCostosDetalle);
 
+        itemReporteRecolecciones.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemReporteRecolecciones.setText("Reporte recolecciones");
+        menuReportes.add(itemReporteRecolecciones);
+
+        itemReporteRecibidas.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        itemReporteRecibidas.setText("Reporte recibidas");
+        menuReportes.add(itemReporteRecibidas);
+
         jMenuBar1.add(menuReportes);
 
         setJMenuBar(jMenuBar1);
@@ -231,6 +241,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemReporteEnvios;
     private javax.swing.JMenuItem itemReporteLCostos;
     private javax.swing.JMenuItem itemReporteLCostosDetalle;
+    private javax.swing.JMenuItem itemReporteRecibidas;
+    private javax.swing.JMenuItem itemReporteRecolecciones;
     private javax.swing.JMenuItem itemReporteUsuarios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
