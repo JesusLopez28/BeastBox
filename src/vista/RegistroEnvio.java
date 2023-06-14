@@ -6,11 +6,11 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
-public class RegistroEntrada extends javax.swing.JFrame {
+public class RegistroEnvio extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
 
-    public RegistroEntrada(ListaEnlazada listaUsuarios) {
+    public RegistroEnvio(ListaEnlazada listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
         initComponents();
     }
@@ -226,7 +226,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroEnvio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(() -> {
