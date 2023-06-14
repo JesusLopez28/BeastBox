@@ -1,16 +1,16 @@
 package vista;
 
-import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import modelo.Usuario;
 
 public class CrearListaDetallada extends javax.swing.JFrame {
 
+        Pila pila;
+    
     public CrearListaDetallada() {
 
         initComponents();
@@ -224,7 +224,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-            
+        String nombre;
+        
+       
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     public static void main(String args[]) {

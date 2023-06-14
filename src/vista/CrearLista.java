@@ -1,18 +1,22 @@
 package vista;
 
 import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.ListaCostos;
 import modelo.Usuario;
 
 public class CrearLista extends javax.swing.JFrame {
     
-    public CrearLista() {
-
+    Pila pilaCostos;
+    
+    public CrearLista(Pila pilaCostos) {
+        this.pilaCostos = pilaCostos;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -41,16 +45,20 @@ public class CrearLista extends javax.swing.JFrame {
         lbU = new javax.swing.JLabel();
         txtNombreLista = new javax.swing.JTextField();
         lbC = new javax.swing.JLabel();
-        txtAreaRemota = new javax.swing.JPasswordField();
         btnAgregar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbC1 = new javax.swing.JLabel();
-        txtPaqueteFragil = new javax.swing.JTextField();
+        txtExcesoPeso = new javax.swing.JTextField();
         lbR1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtSeguro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        lblPeso = new javax.swing.JLabel();
+        txtPaqueteFragil1 = new javax.swing.JTextField();
+        lblPeso1 = new javax.swing.JLabel();
+        txtSobreDimension = new javax.swing.JTextField();
+        txtAreaRemota = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -77,8 +85,6 @@ public class CrearLista extends javax.swing.JFrame {
         lbC.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbC.setText("Precio por area remota:");
 
-        txtAreaRemota.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-
         btnAgregar.setBackground(new java.awt.Color(63, 82, 191));
         btnAgregar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,7 +98,7 @@ public class CrearLista extends javax.swing.JFrame {
         lbC1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbC1.setText("Seguro:");
 
-        txtPaqueteFragil.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtExcesoPeso.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         lbR1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbR1.setText("Paquete frágil");
@@ -115,6 +121,18 @@ public class CrearLista extends javax.swing.JFrame {
             }
         });
 
+        lblPeso.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPeso.setText("Exceso de peso:");
+
+        txtPaqueteFragil1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+
+        lblPeso1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPeso1.setText("Sobredimension:");
+
+        txtSobreDimension.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+
+        txtAreaRemota.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -124,22 +142,6 @@ public class CrearLista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbC1)
-                    .addComponent(lbU)
-                    .addComponent(lbC)
-                    .addComponent(lbR1)
-                    .addComponent(txtNombreLista, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(txtAreaRemota)
-                    .addComponent(txtPaqueteFragil)
-                    .addComponent(txtSeguro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(201, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,6 +151,32 @@ public class CrearLista extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btnRegresar)
                         .addGap(194, 194, 194))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblPeso1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblPeso)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtSobreDimension, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbC1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbU, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbC, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbR1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreLista, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(txtExcesoPeso, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSeguro, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPaqueteFragil1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAreaRemota, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(25, 25, 25))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,9 +195,9 @@ public class CrearLista extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbC)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
                 .addComponent(txtAreaRemota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lbC1)
                 .addGap(9, 9, 9)
                 .addComponent(txtSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,12 +206,20 @@ public class CrearLista extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(lbR1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPaqueteFragil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(txtPaqueteFragil1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(lblPeso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtExcesoPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblPeso1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSobreDimension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -200,7 +236,7 @@ public class CrearLista extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,15 +249,39 @@ public class CrearLista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        String nombre, auxString, auxString1, auxString2, auxString3, auxString4;
+        float areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension;
+        
+        nombre = txtNombreLista.getText();
+        auxString = txtAreaRemota.getText();
+        auxString1 = txtSeguro.getText();
+        auxString2 = txtPaqueteFragil1.getText();
+        auxString3 = txtExcesoPeso.getText();
+        auxString4 = txtSobreDimension.getText();
+        
+        areaRemota = Float.parseFloat(auxString);
+        seguro = Float.parseFloat(auxString1);
+        paqueteFragil = Float.parseFloat(auxString2);
+        excesoPeso = Float.parseFloat(auxString3);
+        sobreDimension = Float.parseFloat(auxString4);
+        
+        if (!nombre.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString2.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
+            pilaCostos.push(new ListaCostos(nombre, areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension));
+            JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
-
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -262,10 +322,14 @@ public class CrearLista extends javax.swing.JFrame {
     private javax.swing.JLabel lbR;
     private javax.swing.JLabel lbR1;
     private javax.swing.JLabel lbU;
-    private javax.swing.JPasswordField txtAreaRemota;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblPeso1;
+    private javax.swing.JTextField txtAreaRemota;
+    private javax.swing.JTextField txtExcesoPeso;
     private javax.swing.JTextField txtNombreLista;
-    private javax.swing.JTextField txtPaqueteFragil;
+    private javax.swing.JTextField txtPaqueteFragil1;
     private javax.swing.JTextField txtRespuesta;
     private javax.swing.JTextField txtSeguro;
+    private javax.swing.JTextField txtSobreDimension;
     // End of variables declaration//GEN-END:variables
 }

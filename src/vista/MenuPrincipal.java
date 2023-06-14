@@ -290,6 +290,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemListaCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListaCostosActionPerformed
         // TODO add your handling code here:
+        CrearLista crearLista = new CrearLista(pilaCostos);
+        crearLista.setVisible(true);
+        crearLista.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemListaCostosActionPerformed
 
     public static void main(String args[]) {

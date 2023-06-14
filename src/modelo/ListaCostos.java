@@ -3,14 +3,13 @@ package modelo;
 public class ListaCostos {
 
     private String nombre;
-    private int areaRemota;
-    private int seguro;
-    private boolean paqueteFragil;
-    private int excesoPeso;
-    private boolean sobreDimension;
-    ListaCostos Costosiguiente;
+    private  float areaRemota;
+    private float seguro;
+    private float paqueteFragil;
+    private float excesoPeso;
+    private  float sobreDimension;
 
-    public ListaCostos(String nombre, int areaRemota, int seguro, boolean paqueteFragil, int excesoPeso, boolean sobreDimension) {
+    public ListaCostos(String nombre, float areaRemota, float seguro, float paqueteFragil, float excesoPeso, float sobreDimension) {
         this.nombre = nombre;
         this.areaRemota = areaRemota;
         this.seguro = seguro;
@@ -27,52 +26,46 @@ public class ListaCostos {
         this.nombre = nombre;
     }
 
-    public int getAreaRemota() {
+    public float getAreaRemota() {
         return areaRemota;
     }
 
-    public void setAreaRemota(int areaRemota) {
+    public void setAreaRemota(float areaRemota) {
         this.areaRemota = areaRemota;
     }
 
-    public int getSeguro() {
+    public float getSeguro() {
         return seguro;
     }
 
-    public void setSeguro(int seguro) {
+    public void setSeguro(float seguro) {
         this.seguro = seguro;
     }
 
-    public boolean isPaqueteFragil() {
+    public float getPaqueteFragil() {
         return paqueteFragil;
     }
 
-    public void setPaqueteFragil(boolean paqueteFragil) {
+    public void setPaqueteFragil(float paqueteFragil) {
         this.paqueteFragil = paqueteFragil;
     }
 
-    public int getExcesoPeso() {
+    public float getExcesoPeso() {
         return excesoPeso;
     }
 
-    public void setExcesoPeso(int excesoPeso) {
+    public void setExcesoPeso(float excesoPeso) {
         this.excesoPeso = excesoPeso;
     }
 
-    public boolean isSobreDimension() {
+    public float getSobreDimension() {
         return sobreDimension;
     }
 
-    public void setSobreDimension(boolean sobreDimension) {
+    public void setSobreDimension(float sobreDimension) {
         this.sobreDimension = sobreDimension;
     }
-    
-    public ListaCostos getCostosiguiente() {
-        return Costosiguiente;
-    }
 
-    public void setCostosiguiente(ListaCostos Costosiguiente) {
-        this.Costosiguiente = Costosiguiente;
-    }
+    
     
 }
