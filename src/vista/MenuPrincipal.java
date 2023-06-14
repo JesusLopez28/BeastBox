@@ -27,6 +27,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuUsuarios = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuEnvios = new javax.swing.JMenu();
         menuListas = new javax.swing.JMenu();
         menuReportes = new javax.swing.JMenu();
@@ -45,7 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(67, 90, 217));
@@ -55,22 +57,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         menuUsuarios.setText("Usuarios");
-        menuUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        menuUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
+
+        jMenuItem1.setText("Actualizar Información");
+        menuUsuarios.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        menuUsuarios.add(jMenuItem2);
+
         jMenuBar1.add(menuUsuarios);
 
         menuEnvios.setForeground(new java.awt.Color(255, 255, 255));
         menuEnvios.setText("Envíos");
-        menuEnvios.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        menuEnvios.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jMenuBar1.add(menuEnvios);
 
         menuListas.setForeground(new java.awt.Color(255, 255, 255));
         menuListas.setText("Lista de costos");
-        menuListas.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        menuListas.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jMenuBar1.add(menuListas);
 
         menuReportes.setForeground(new java.awt.Color(255, 255, 255));
         menuReportes.setText("Reportes");
-        menuReportes.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        menuReportes.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         jMenuBar1.add(menuReportes);
 
         setJMenuBar(jMenuBar1);
@@ -113,6 +122,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JButton btnRecuperar1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
