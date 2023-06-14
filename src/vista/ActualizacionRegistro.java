@@ -6,15 +6,15 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
-public class RegistroUsuarios extends javax.swing.JFrame {
+public class ActualizacionRegistro extends javax.swing.JFrame {
 
    
 
-    public RegistroUsuarios() {
+    public ActualizacionRegistro() {
   
     }
 
-    public RegistroUsuarios(ListaEnlazada listaUsuarios) {
+    public ActualizacionRegistro(ListaEnlazada listaUsuarios) {
       
     }
 
@@ -245,7 +245,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroUsuarios.class
+            java.util.logging.Logger.getLogger(ActualizacionRegistro.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
