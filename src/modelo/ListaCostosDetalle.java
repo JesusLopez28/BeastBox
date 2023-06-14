@@ -2,18 +2,14 @@ package modelo;
 
 public class ListaCostosDetalle{
 
-    private double pesoMinimo;
-    private double pesoMaximo;
-    private int zona;
+    private float pesoMinimo;
+    private float pesoMaximo;
+    private float zona;
     private String servicio;
-    private double precio;
+    private float precio;
     private String listaCostos;
-    ListaCostosDetalle CostoDetallesiguiente;
 
-    
-    
-
-    public ListaCostosDetalle(double pesoMinimo, double pesoMaximo, int zona, String servicio, double precio, String listaCostos) {
+    public ListaCostosDetalle(float pesoMinimo, float pesoMaximo, float zona, String servicio, float precio, String listaCostos) {
         this.pesoMinimo = pesoMinimo;
         this.pesoMaximo = pesoMaximo;
         this.zona = zona;
@@ -22,27 +18,27 @@ public class ListaCostosDetalle{
         this.listaCostos = listaCostos;
     }
 
-    public double getPesoMinimo() {
+    public float getPesoMinimo() {
         return pesoMinimo;
     }
 
-    public void setPesoMinimo(double pesoMinimo) {
+    public void setPesoMinimo(float pesoMinimo) {
         this.pesoMinimo = pesoMinimo;
     }
 
-    public double getPesoMaximo() {
+    public float getPesoMaximo() {
         return pesoMaximo;
     }
 
-    public void setPesoMaximo(double pesoMaximo) {
+    public void setPesoMaximo(float pesoMaximo) {
         this.pesoMaximo = pesoMaximo;
     }
 
-    public int getZona() {
+    public float getZona() {
         return zona;
     }
 
-    public void setZona(int zona) {
+    public void setZona(float zona) {
         this.zona = zona;
     }
 
@@ -54,11 +50,11 @@ public class ListaCostosDetalle{
         this.servicio = servicio;
     }
 
-    public double getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
@@ -69,13 +65,6 @@ public class ListaCostosDetalle{
     public void setListaCostos(String listaCostos) {
         this.listaCostos = listaCostos;
     }
-    
-    public ListaCostosDetalle getCostoDetallesiguiente() {
-        return CostoDetallesiguiente;
-    }
-
-    public void setCostoDetallesiguiente(ListaCostosDetalle CostoDetallesiguiente) {
-        this.CostoDetallesiguiente = CostoDetallesiguiente;
-    }
+  
     
 }

@@ -9,10 +9,10 @@ import javax.swing.ImageIcon;
 
 public class CrearListaDetallada extends javax.swing.JFrame {
 
-        Pila pila;
+        Pila pilaCostoDetalle;
     
-    public CrearListaDetallada() {
-
+    public CrearListaDetallada(Pila pilaCostoDetalle) {
+        this.pilaCostoDetalle = pilaCostoDetalle;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -38,9 +38,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lbImagen = new javax.swing.JLabel();
-        lbU = new javax.swing.JLabel();
+        lblNombreLista = new javax.swing.JLabel();
         txtNombreLista = new javax.swing.JTextField();
-        lbC = new javax.swing.JLabel();
+        lblPesoMaximo = new javax.swing.JLabel();
         txtAreaRemota = new javax.swing.JPasswordField();
         btnAgregar = new javax.swing.JButton();
         btnRecuperar = new javax.swing.JButton();
@@ -51,6 +51,8 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtSeguro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        lblPesoMaximo1 = new javax.swing.JLabel();
+        txtAreaRemota1 = new javax.swing.JPasswordField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -69,15 +71,20 @@ public class CrearListaDetallada extends javax.swing.JFrame {
 
         lbImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/beastBoxIcon.png"))); // NOI18N
 
-        lbU.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbU.setText("Nombre de la Lista:");
+        lblNombreLista.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblNombreLista.setText("Nombre de lista:");
 
         txtNombreLista.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
-        lbC.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbC.setText("Precio por area remota:");
+        lblPesoMaximo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPesoMaximo.setText("Peso Maximo:");
 
         txtAreaRemota.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtAreaRemota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAreaRemotaActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setBackground(new java.awt.Color(63, 82, 191));
         btnAgregar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -108,12 +115,22 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         lbR1.setText("Paquete frágil");
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
-        jLabel2.setText("CREAR LISTA");
+        jLabel2.setText("AGREGAR ELEMENTO ");
 
         txtSeguro.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paquetes (1).png"))); // NOI18N
         jLabel3.setText(" ");
+
+        lblPesoMaximo1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        lblPesoMaximo1.setText("Peso Maximo:");
+
+        txtAreaRemota1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtAreaRemota1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAreaRemota1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,7 +139,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(lbImagen)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
@@ -130,18 +147,28 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbC1)
-                    .addComponent(lbU)
-                    .addComponent(lbC)
+                    .addComponent(lblNombreLista)
+                    .addComponent(lblPesoMaximo)
                     .addComponent(lbR1)
                     .addComponent(txtNombreLista, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(txtAreaRemota)
                     .addComponent(txtPaqueteFragil)
                     .addComponent(txtSeguro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(25, 25, 25))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(25, 25, 25))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAreaRemota1)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblPesoMaximo1)
+                                .addGap(0, 153, Short.MAX_VALUE)))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(btnAgregar)
@@ -161,15 +188,19 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lbU)
+                        .addComponent(lblNombreLista)
                         .addGap(18, 18, 18)
                         .addComponent(txtNombreLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbC)
-                .addGap(18, 18, 18)
-                .addComponent(txtAreaRemota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPesoMaximo)
+                    .addComponent(lblPesoMaximo1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAreaRemota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAreaRemota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
                 .addComponent(lbC1)
                 .addGap(9, 9, 9)
                 .addComponent(txtSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,7 +210,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                 .addComponent(lbR1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPaqueteFragil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
                 .addComponent(btnRecuperar)
@@ -193,14 +224,14 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,7 +240,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,10 +255,20 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String nombre;
+        String servicio, listaCostos, auxString, auxString1, auxString2, auxString3;
+        float pesoMinimo, pesoMaximo, zona, precio;
+        
         
        
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void txtAreaRemotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaRemotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAreaRemotaActionPerformed
+
+    private void txtAreaRemota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAreaRemota1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAreaRemota1ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -256,13 +297,15 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbC;
     private javax.swing.JLabel lbC1;
     private javax.swing.JLabel lbImagen;
     private javax.swing.JLabel lbR;
     private javax.swing.JLabel lbR1;
-    private javax.swing.JLabel lbU;
+    private javax.swing.JLabel lblNombreLista;
+    private javax.swing.JLabel lblPesoMaximo;
+    private javax.swing.JLabel lblPesoMaximo1;
     private javax.swing.JPasswordField txtAreaRemota;
+    private javax.swing.JPasswordField txtAreaRemota1;
     private javax.swing.JTextField txtNombreLista;
     private javax.swing.JTextField txtPaqueteFragil;
     private javax.swing.JTextField txtRespuesta;

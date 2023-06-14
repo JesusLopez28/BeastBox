@@ -207,6 +207,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemListaCostosDetalle.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemListaCostosDetalle.setText("Aregar elemento a lista de costos");
+        itemListaCostosDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemListaCostosDetalleActionPerformed(evt);
+            }
+        });
         menuListas.add(itemListaCostosDetalle);
 
         jMenuBar1.add(menuListas);
@@ -294,6 +299,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         crearLista.setVisible(true);
         crearLista.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemListaCostosActionPerformed
+
+    private void itemListaCostosDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListaCostosDetalleActionPerformed
+        CrearListaDetallada crearListaDetallada  = new CrearListaDetallada(pilaCostosDetalle);
+        crearListaDetallada.setVisible(true);
+        crearListaDetallada.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itemListaCostosDetalleActionPerformed
 
     public static void main(String args[]) {
         try {
