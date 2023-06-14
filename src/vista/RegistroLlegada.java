@@ -6,11 +6,11 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
-public class RegistroEnvio extends javax.swing.JFrame {
+public class RegistroLlegada extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
 
-    public RegistroEnvio(ListaEnlazada listaUsuarios) {
+    public RegistroLlegada(ListaEnlazada listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
         initComponents();
     }
@@ -31,7 +31,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lbImagen = new javax.swing.JLabel();
         lbU = new javax.swing.JLabel();
-        txtFechaEnvio = new javax.swing.JTextField();
+        txtFechaLlegada = new javax.swing.JTextField();
         btnRestablecer = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         lbR = new javax.swing.JLabel();
@@ -56,10 +56,10 @@ public class RegistroEnvio extends javax.swing.JFrame {
         lbU.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbU.setText("Numero de Guia:");
 
-        txtFechaEnvio.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txtFechaEnvio.addActionListener(new java.awt.event.ActionListener() {
+        txtFechaLlegada.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        txtFechaLlegada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaEnvioActionPerformed(evt);
+                txtFechaLlegadaActionPerformed(evt);
             }
         });
 
@@ -84,7 +84,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
         });
 
         lbR.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lbR.setText("Fecha de Envio:");
+        lbR.setText("Fecha de Llegada:");
 
         txtNumGuia.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
@@ -92,7 +92,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
         lbP.setText("Hora:");
 
         jLabel5.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
-        jLabel5.setText("REGISTRO ENVIO");
+        jLabel5.setText("REGISTRO LLEGADA");
 
         txtHora.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         txtHora.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
                             .addComponent(lbR)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lbU)
-                                .addComponent(txtFechaEnvio, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                .addComponent(txtFechaLlegada, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                                 .addComponent(txtNumGuia)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +152,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
                     .addComponent(lbP))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(btnRestablecer)
@@ -209,9 +209,9 @@ public class RegistroEnvio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRestablecerActionPerformed
 
-    private void txtFechaEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaEnvioActionPerformed
+    private void txtFechaLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaLlegadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaEnvioActionPerformed
+    }//GEN-LAST:event_txtFechaLlegadaActionPerformed
 
     private void txtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraActionPerformed
         // TODO add your handling code here:
@@ -226,7 +226,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistroEnvio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistroLlegada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(() -> {
@@ -244,7 +244,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
     private javax.swing.JLabel lbP;
     private javax.swing.JLabel lbR;
     private javax.swing.JLabel lbU;
-    private javax.swing.JTextField txtFechaEnvio;
+    private javax.swing.JTextField txtFechaLlegada;
     private javax.swing.JTextField txtHora;
     private javax.swing.JTextField txtNumGuia;
     // End of variables declaration//GEN-END:variables

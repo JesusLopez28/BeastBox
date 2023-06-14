@@ -102,7 +102,7 @@
                                   <Component id="lbR" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="lbU" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtFechaEnvio" alignment="0" pref="248" max="32767" attributes="0"/>
+                                      <Component id="txtFechaLlegada" alignment="0" pref="248" max="32767" attributes="0"/>
                                       <Component id="txtNumGuia" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -155,7 +155,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtFechaEnvio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtFechaLlegada" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtHora" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -183,14 +183,14 @@
                 <Property name="text" type="java.lang.String" value="Numero de Guia:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtFechaEnvio">
+            <Component class="javax.swing.JTextField" name="txtFechaLlegada">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Nirmala UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaEnvioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaLlegadaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRestablecer">
@@ -232,7 +232,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Nirmala UI" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fecha de Envio:"/>
+                <Property name="text" type="java.lang.String" value="Fecha de Llegada:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNumGuia">
@@ -255,7 +255,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Nirmala UI" size="24" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="REGISTRO ENVIO"/>
+                <Property name="text" type="java.lang.String" value="REGISTRO LLEGADA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtHora">

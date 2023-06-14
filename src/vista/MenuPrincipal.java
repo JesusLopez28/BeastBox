@@ -34,7 +34,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuUsuarios = new javax.swing.JMenu();
         itemRegistrarUsuarios = new javax.swing.JMenuItem();
@@ -60,17 +62,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(150, 166, 217));
         setIconImage(getIconImage());
 
-        jPanel4.setBackground(new java.awt.Color(242, 242, 240));
+        jPanel2.setBackground(new java.awt.Color(150, 166, 217));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/beastBox.png"))); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("LA MEJOR PAQUETERÍA");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel5)
+                .addGap(0, 58, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(67, 90, 217));
@@ -168,11 +186,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 970, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -197,10 +217,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIngresar;
-    private javax.swing.JButton btnIngresar1;
-    private javax.swing.JButton btnRecuperar;
-    private javax.swing.JButton btnRecuperar1;
     private javax.swing.JMenuItem itemActualizarInfo;
     private javax.swing.JMenuItem itemCancelar;
     private javax.swing.JMenuItem itemCerrarSesion;
@@ -216,23 +232,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemReporteLCostos;
     private javax.swing.JMenuItem itemReporteLCostosDetalle;
     private javax.swing.JMenuItem itemReporteUsuarios;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lbC;
-    private javax.swing.JLabel lbC1;
-    private javax.swing.JLabel lbImagen;
-    private javax.swing.JLabel lbImagen1;
-    private javax.swing.JLabel lbU;
-    private javax.swing.JLabel lbU1;
     private javax.swing.JMenu menuEnvios;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuReportes;
     private javax.swing.JMenu menuUsuarios;
-    private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JPasswordField txtContraseña1;
-    private javax.swing.JTextField txtUser;
-    private javax.swing.JTextField txtUser1;
     // End of variables declaration//GEN-END:variables
 }
