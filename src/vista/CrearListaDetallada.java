@@ -7,14 +7,17 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.ListaCostos;
 import modelo.ListaCostosDetalle;
 
 public class CrearListaDetallada extends javax.swing.JFrame {
 
     ListaEnlazada listaCostoDetalle;
+    ListaEnlazada listaCostos;
 
-    public CrearListaDetallada(ListaEnlazada listaCostoDetalle) {
+    public CrearListaDetallada(ListaEnlazada listaCostoDetalle, ListaEnlazada listaCostos) {
         this.listaCostoDetalle = listaCostoDetalle;
+        this.listaCostos = listaCostos;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -41,7 +44,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lbImagen = new javax.swing.JLabel();
         lblNombreLista = new javax.swing.JLabel();
-        txtNombreLista = new javax.swing.JTextField();
         lblPesoMaximo = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         btnRecuperar = new javax.swing.JButton();
@@ -59,6 +61,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         txtListaPrecio = new javax.swing.JTextField();
         txtMaximo = new javax.swing.JTextField();
         txtMinimo = new javax.swing.JTextField();
+        comboLista = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -79,8 +82,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
 
         lblNombreLista.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lblNombreLista.setText("Nombre de lista:");
-
-        txtNombreLista.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         lblPesoMaximo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lblPesoMaximo.setText("Peso Maximo:");
@@ -148,6 +149,10 @@ public class CrearListaDetallada extends javax.swing.JFrame {
 
         txtMinimo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
+        comboLista.setBackground(new java.awt.Color(150, 166, 217));
+        comboLista.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        comboLista.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -157,24 +162,29 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 177, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregar)
+                .addGap(227, 227, 227))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addComponent(btnRecuperar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblZona)
-                    .addComponent(lblNombreLista)
-                    .addComponent(lblPesoMaximo)
-                    .addComponent(lblPrecio)
-                    .addComponent(txtNombreLista, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(txtPrecio)
-                    .addComponent(txtZona)
-                    .addComponent(txtMaximo))
+                    .addComponent(comboLista, 0, 243, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblZona)
+                        .addComponent(lblNombreLista)
+                        .addComponent(lblPesoMaximo)
+                        .addComponent(lblPrecio)
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                        .addComponent(txtZona)
+                        .addComponent(txtMaximo)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(25, 25, 25))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,15 +197,11 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                                     .addComponent(lblListaPrecio))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtListaPrecio))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregar)
-                .addGap(227, 227, 227))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(btnRecuperar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jLabel3)
+                        .addGap(25, 25, 25))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +216,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblNombreLista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +299,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         String servicio, listaCostos, auxString, auxString1, auxString3, auxString4;
         float pesoMinimo, pesoMaximo, zona, precio;
 
-        listaCostos = txtNombreLista.getText();
+        listaCostos = "";
         servicio = txtServicio.getText();
         auxString = txtMinimo.getText();
         auxString1 = txtMaximo.getText();
@@ -301,6 +307,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         auxString4 = txtPrecio.getText();
 
         try {
+            if (comboLista.getSelectedItem() != null) {
+                listaCostos = (String) comboLista.getSelectedItem();
+            }
             pesoMinimo = Float.parseFloat(auxString);
             pesoMaximo = Float.parseFloat(auxString1);
             zona = Float.parseFloat(auxString3);
@@ -325,6 +334,15 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtServicioActionPerformed
 
+    private void llenarCombos() {
+        Object[] auxA = listaCostos.imprimirLista();
+
+        for (Object alumno : auxA) {
+            ListaCostos a = (ListaCostos) alumno;
+            comboLista.addItem(a.getNombre());
+        }
+    }
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -346,6 +364,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRecuperar;
+    private javax.swing.JComboBox comboLista;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -364,7 +383,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private javax.swing.JTextField txtListaPrecio;
     private javax.swing.JTextField txtMaximo;
     private javax.swing.JTextField txtMinimo;
-    private javax.swing.JTextField txtNombreLista;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtRespuesta;
     private javax.swing.JTextField txtServicio;

@@ -367,7 +367,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemListaCostosActionPerformed
 
     private void itemListaCostosDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListaCostosDetalleActionPerformed
-        CrearListaDetallada crearListaDetallada = new CrearListaDetallada(listaCostosDetalle);
+        CrearListaDetallada crearListaDetallada = new CrearListaDetallada(listaCostosDetalle, listaCostos);
         crearListaDetallada.setVisible(true);
         crearListaDetallada.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemListaCostosDetalleActionPerformed
