@@ -19,11 +19,11 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         this.listaCostoDetalle = listaCostoDetalle;
         this.listaCostos = listaCostos;
         initComponents();
-        this.llenarCombos();
         String cursor = "src/imagenes/seleccion.png";
         ImageIcon imgCursor = new ImageIcon(cursor);
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
         this.setCursor(cursorC);
+        this.llenarCombos();
     }
 
     @Override
@@ -55,13 +55,11 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         lblPesoMinimo = new javax.swing.JLabel();
         lblZona1 = new javax.swing.JLabel();
-        txtServicio = new javax.swing.JTextField();
-        lblListaPrecio = new javax.swing.JLabel();
-        txtListaPrecio = new javax.swing.JTextField();
         txtMaximo = new javax.swing.JTextField();
         txtMinimo = new javax.swing.JTextField();
         comboLista = new javax.swing.JComboBox();
         comboSucursal = new javax.swing.JComboBox();
+        comboServicio = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -126,18 +124,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         lblZona1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lblZona1.setText("Servicio:");
 
-        txtServicio.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txtServicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtServicioActionPerformed(evt);
-            }
-        });
-
-        lblListaPrecio.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lblListaPrecio.setText("Lista Precio:");
-
-        txtListaPrecio.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-
         txtMaximo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
         txtMinimo.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
@@ -148,6 +134,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
 
         comboSucursal.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         comboSucursal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
+
+        comboServicio.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        comboServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terrestre", "Express" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -172,23 +161,21 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                     .addComponent(txtMaximo)
                     .addComponent(comboSucursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jLabel3)
+                        .addGap(25, 25, 25))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMinimo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtServicio)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblZona1)
-                                    .addComponent(lblPesoMinimo)
-                                    .addComponent(lblListaPrecio))
+                                    .addComponent(lblPesoMinimo))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtListaPrecio))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(jLabel3)
-                        .addGap(25, 25, 25))))
+                            .addComponent(comboServicio, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,27 +213,22 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(txtMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblZona)
-                            .addComponent(lblZona1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblPrecio))
-                    .addComponent(lblListaPrecio, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblZona)
+                    .addComponent(lblZona1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblPrecio)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtListaPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
@@ -288,7 +270,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
-        this.disable();
+        this.dispose();
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -296,7 +278,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         float pesoMinimo, pesoMaximo, zona, precio;
 
         String listaC = "";
-        servicio = txtServicio.getText();
+        servicio = "";
         auxString = txtMinimo.getText();
         auxString1 = txtMaximo.getText();
         sucursal = "";
@@ -308,6 +290,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             }
             if (comboSucursal.getSelectedItem() != null) {
                 sucursal = (String) comboSucursal.getSelectedItem();
+            }
+            if (comboServicio.getSelectedItem() != null) {
+                servicio = (String) comboServicio.getSelectedItem();
             }
             pesoMinimo = Float.parseFloat(auxString);
             pesoMaximo = Float.parseFloat(auxString1);
@@ -323,10 +308,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Los campos de peso mínimo, peso máximo, zona y precio deben contener valores numéricos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void txtServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtServicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtServicioActionPerformed
 
     private void llenarCombos() {
         Object[] auxA = listaCostos.imprimirLista();
@@ -359,6 +340,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JComboBox comboLista;
+    private javax.swing.JComboBox comboServicio;
     private javax.swing.JComboBox comboSucursal;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -368,18 +350,15 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbImagen;
     private javax.swing.JLabel lbR;
-    private javax.swing.JLabel lblListaPrecio;
     private javax.swing.JLabel lblNombreLista;
     private javax.swing.JLabel lblPesoMaximo;
     private javax.swing.JLabel lblPesoMinimo;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblZona;
     private javax.swing.JLabel lblZona1;
-    private javax.swing.JTextField txtListaPrecio;
     private javax.swing.JTextField txtMaximo;
     private javax.swing.JTextField txtMinimo;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtRespuesta;
-    private javax.swing.JTextField txtServicio;
     // End of variables declaration//GEN-END:variables
 }
