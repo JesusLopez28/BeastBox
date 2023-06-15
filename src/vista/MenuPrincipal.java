@@ -381,26 +381,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCotizarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_itemCotizarActionPerformed
 
     private void itemCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCancelarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_itemCancelarActionPerformed
 
     private void itemRegistrarEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEnvioActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_itemRegistrarEnvioActionPerformed
 
     private void itemRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEntradaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_itemRegistrarEntradaActionPerformed
 
     private void itemRegistrarLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarLlegadaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_itemRegistrarLlegadaActionPerformed
 
     private void itemRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarSalidaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_itemRegistrarSalidaActionPerformed
 
     private void itemReporteUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteUsuariosActionPerformed

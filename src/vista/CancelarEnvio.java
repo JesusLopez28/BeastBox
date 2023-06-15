@@ -1,17 +1,18 @@
 package vista;
 
-import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import modelo.Usuario;
 
 public class CancelarEnvio extends javax.swing.JFrame {
 
-    public CancelarEnvio() {
+    Pila pilaEnvio;
+
+    public CancelarEnvio(Pila pilaEnvio) {
+        this.pilaEnvio = pilaEnvio;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -174,6 +175,7 @@ public class CancelarEnvio extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed

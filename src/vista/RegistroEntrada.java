@@ -6,14 +6,15 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import modelo.Recibidos;
 
 public class RegistroEntrada extends javax.swing.JFrame {
 
-    Pila pilaRecibidos;
+    Pila pilaRecolecciones;
+    Pila pilaEnvio;
 
-    public RegistroEntrada(Pila pilaRecibidos) {
-        this.pilaRecibidos = pilaRecibidos;
+    public RegistroEntrada(Pila pilaRecolecciones, Pila pilaEnvio) {
+        this.pilaRecolecciones = pilaRecolecciones;
+        this.pilaEnvio = pilaEnvio;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -206,8 +207,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        String numero = "", FechaLlegada = "", HoraLlegada = "";
-        pilaRecibidos.push(new Recibidos(numero, FechaLlegada, HoraLlegada, null, null));
+        
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

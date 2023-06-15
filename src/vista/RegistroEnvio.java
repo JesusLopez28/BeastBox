@@ -1,18 +1,20 @@
 package vista;
 
-import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import modelo.Usuario;
 
 public class RegistroEnvio extends javax.swing.JFrame {
 
+    Pila pilaRecolecciones;
+    Pila pilaEnvio;
 
-    public RegistroEnvio() {
+    public RegistroEnvio(Pila pilaRecolecciones, Pila pilaEnvio) {
+        this.pilaRecolecciones = pilaRecolecciones;
+        this.pilaEnvio = pilaEnvio;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -205,6 +207,7 @@ public class RegistroEnvio extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed

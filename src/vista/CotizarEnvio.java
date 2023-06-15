@@ -1,18 +1,18 @@
 package vista;
 
-import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import modelo.Usuario;
 
 public class CotizarEnvio extends javax.swing.JFrame {
 
-    public CotizarEnvio() {
-
+    Pila pilaEnvio;
+    
+    public CotizarEnvio(Pila pilaEnvio) {
+        this.pilaEnvio = pilaEnvio;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -58,9 +58,6 @@ public class CotizarEnvio extends javax.swing.JFrame {
         lblm = new javax.swing.JLabel();
         lblm2 = new javax.swing.JLabel();
         lblm3 = new javax.swing.JLabel();
-        lblPrecio = new javax.swing.JLabel();
-        btnGenerar = new javax.swing.JButton();
-        btnRegresar2 = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -185,29 +182,6 @@ public class CotizarEnvio extends javax.swing.JFrame {
         lblm3.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lblm3.setText("M:");
 
-        lblPrecio.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
-        lblPrecio.setText("Precio");
-
-        btnGenerar.setBackground(new java.awt.Color(63, 82, 191));
-        btnGenerar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGenerar.setText("GENERAR");
-        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarActionPerformed(evt);
-            }
-        });
-
-        btnRegresar2.setBackground(new java.awt.Color(150, 166, 217));
-        btnRegresar2.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        btnRegresar2.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegresar2.setText("Regresar");
-        btnRegresar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -259,19 +233,11 @@ public class CotizarEnvio extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
-                        .addComponent(btnCotizar))
+                        .addGap(279, 279, 279)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(316, 316, 316)
-                        .addComponent(lblPrecio))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(298, 298, 298)
-                        .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(317, 317, 317)
+                        .addComponent(btnCotizar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -310,17 +276,11 @@ public class CotizarEnvio extends javax.swing.JFrame {
                     .addComponent(SliderAncho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblm2)
                     .addComponent(lblm3))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addComponent(btnCotizar)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar)
-                .addGap(18, 18, 18)
-                .addComponent(lblPrecio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnGenerar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRegresar2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -357,7 +317,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-
+        this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCotizarActionPerformed
@@ -379,14 +339,6 @@ public class CotizarEnvio extends javax.swing.JFrame {
     private void SliderAnchoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SliderAnchoStateChanged
         lblm3.setText("M: " + SliderAncho.getValue());
     }//GEN-LAST:event_SliderAnchoStateChanged
-
-    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGenerarActionPerformed
-
-    private void btnRegresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegresar2ActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -412,9 +364,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
     private javax.swing.JSlider SliderLargo;
     private javax.swing.JSlider SliderPeso;
     private javax.swing.JButton btnCotizar;
-    private javax.swing.JButton btnGenerar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton btnRegresar2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -431,7 +381,6 @@ public class CotizarEnvio extends javax.swing.JFrame {
     private javax.swing.JLabel lblOrigen1;
     private javax.swing.JLabel lblPeso;
     private javax.swing.JLabel lblPeso1;
-    private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblm;
     private javax.swing.JLabel lblm2;
     private javax.swing.JLabel lblm3;
