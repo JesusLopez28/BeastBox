@@ -10,9 +10,9 @@ import javax.swing.JOptionPane;
 import modelo.ListaCostos;
 
 public class CrearLista extends javax.swing.JFrame {
-    
+
     ListaEnlazada listaCostos;
-    
+
     public CrearLista(ListaEnlazada listaCostos) {
         this.listaCostos = listaCostos;
         initComponents();
@@ -258,28 +258,30 @@ public class CrearLista extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String nombre, auxString, auxString1, auxString2, auxString3, auxString4;
         float areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension;
-        
+
         nombre = txtNombreLista.getText();
         auxString = txtAreaRemota.getText();
         auxString1 = txtSeguro.getText();
         auxString2 = txtPaqueteFragil1.getText();
         auxString3 = txtExcesoPeso.getText();
         auxString4 = txtSobreDimension.getText();
-        
-        areaRemota = Float.parseFloat(auxString);
-        seguro = Float.parseFloat(auxString1);
-        paqueteFragil = Float.parseFloat(auxString2);
-        excesoPeso = Float.parseFloat(auxString3);
-        sobreDimension = Float.parseFloat(auxString4);
-        
-        if (!nombre.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString2.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
-            listaCostos.insertar(new ListaCostos(nombre, areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension));
-            JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
 
-        
+        try {
+            areaRemota = Float.parseFloat(auxString);
+            seguro = Float.parseFloat(auxString1);
+            paqueteFragil = Float.parseFloat(auxString2);
+            excesoPeso = Float.parseFloat(auxString3);
+            sobreDimension = Float.parseFloat(auxString4);
+
+            if (!nombre.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString2.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
+                listaCostos.insertar(new ListaCostos(nombre, areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension));
+                JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Los campos de área remota, seguro, paquete frágil, exceso de peso y sobre dimensión deben contener valores numéricos.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed

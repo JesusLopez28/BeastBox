@@ -11,8 +11,8 @@ import modelo.ListaCostosDetalle;
 
 public class CrearListaDetallada extends javax.swing.JFrame {
 
-        ListaEnlazada listaCostoDetalle;
-    
+    ListaEnlazada listaCostoDetalle;
+
     public CrearListaDetallada(ListaEnlazada listaCostoDetalle) {
         this.listaCostoDetalle = listaCostoDetalle;
         initComponents();
@@ -292,26 +292,29 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String servicio, listaCostos, auxString, auxString1, auxString3, auxString4;
         float pesoMinimo, pesoMaximo, zona, precio;
-        
+
         listaCostos = txtNombreLista.getText();
         servicio = txtServicio.getText();
         auxString = txtMinimo.getText();
         auxString1 = txtMaximo.getText();
         auxString3 = txtZona.getText();
         auxString4 = txtPrecio.getText();
-        
-        pesoMinimo  = Float.parseFloat(auxString);
-        pesoMaximo = Float.parseFloat(auxString1);
-        zona = Float.parseFloat(auxString3);
-        precio = Float.parseFloat(auxString4);
-        
-        if (!servicio.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
-            listaCostoDetalle.insertar(new ListaCostosDetalle( pesoMinimo, pesoMaximo, zona,servicio, precio, listaCostos));
-            JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+
+        try {
+            pesoMinimo = Float.parseFloat(auxString);
+            pesoMaximo = Float.parseFloat(auxString1);
+            zona = Float.parseFloat(auxString3);
+            precio = Float.parseFloat(auxString4);
+
+            if (!servicio.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
+                listaCostoDetalle.insertar(new ListaCostosDetalle(pesoMinimo, pesoMaximo, zona, servicio, precio, listaCostos));
+                JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Los campos de peso mínimo, peso máximo, zona y precio deben contener valores numéricos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-       
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void txtZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZonaActionPerformed
