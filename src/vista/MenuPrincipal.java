@@ -19,7 +19,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     ListaEnlazada listaCostosDetalle = new ListaEnlazada(100);
     Pila pilaRecibidos = new Pila(500);
     Pila pilaRecolecciones = new Pila(500);
-    public String user;
+    String user;
 
     public MenuPrincipal(ListaEnlazada listaUsuarios, String user) {
         this.listaUsuarios = listaUsuarios;
@@ -179,7 +179,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuEnvios.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
 
         itemCotizar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        itemCotizar.setText("Cotizar");
+        itemCotizar.setText("Cotizar/Generar");
         itemCotizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemCotizarActionPerformed(evt);
@@ -386,7 +386,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCotizarActionPerformed
         // TODO add your handling code here:
-        CotizarEnvio cotizarEnvio = new CotizarEnvio(pilaEnvios, listaCostos, listaCostosDetalle);
+        CotizarEnvio cotizarEnvio = new CotizarEnvio(pilaEnvios, listaCostos, listaCostosDetalle, listaUsuarios, user);
         cotizarEnvio.setVisible(true);
         cotizarEnvio.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemCotizarActionPerformed

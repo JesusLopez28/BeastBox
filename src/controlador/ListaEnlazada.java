@@ -1,6 +1,7 @@
 package controlador;
 
 import javax.swing.JOptionPane;
+import modelo.ListaCostosDetalle;
 import modelo.Usuario;
 
 public class ListaEnlazada {
@@ -172,4 +173,23 @@ public class ListaEnlazada {
 
         return null;
     }
+
+    public float obtenerPrecio(String nombreLista, String sucursal, String servicio, float peso) {
+        if (estaVacia()) {
+            JOptionPane.showMessageDialog(null, "La lista está vacía. No se puede buscar.", "Error", JOptionPane.ERROR_MESSAGE);
+            return 0.0f;
+        }
+
+        Nodo nodoActual = inicio;
+        while (nodoActual != null) {
+            ListaCostosDetalle detalle = (ListaCostosDetalle) nodoActual.elemento;
+            if (detalle.getListaCostos().equals(nombreLista) && detalle.getSucursal().equals(sucursal) && detalle.getServicio().equals(servicio) && peso >= detalle.getPesoMinimo() && peso <= detalle.getPesoMaximo()) {
+                return detalle.getPrecio();
+            }
+            nodoActual = nodoActual.siguiente;
+        }
+
+        return 0.0f;
+    }
+
 }
