@@ -30,7 +30,7 @@ public class ReporteEnvios extends javax.swing.JInternalFrame {
 
         for (Object elemento : elementos) {
             Envio envio = (Envio) elemento;
-            Object[] datos = {envio.getNumeroGuia(), envio.getSucursalOrigen(), envio.getSucursalDestino(), envio.getPeso(), envio.getAlto(), envio.getAncho(), envio.getUser(), envio.getStatus()};
+            Object[] datos = {envio.getNumeroGuia(), envio.getSucursalOrigen(), envio.getSucursalDestino(), envio.getPeso(), envio.getAlto(), envio.getLargo(), envio.getAncho(), envio.getUser(), envio.getStatus()};
             modelo.addRow(datos);
         }
         tbInfo.setModel(modelo);

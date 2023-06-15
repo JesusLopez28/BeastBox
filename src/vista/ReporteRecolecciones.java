@@ -1,20 +1,20 @@
 package vista;
 
-import controlador.ListaEnlazada;
+import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.ListaCostos;
+import modelo.Recolecciones;
 
-public class ReporteListaCostos extends javax.swing.JInternalFrame {
+public class ReporteRecolecciones extends javax.swing.JInternalFrame {
 
-    ListaEnlazada listaCostos;
+    Pila pilaRecolecciones;
 
-    public ReporteListaCostos(ListaEnlazada listaCostos) {
-        this.listaCostos = listaCostos;
+    public ReporteRecolecciones(Pila pilaRecolecciones) {
+        this.pilaRecolecciones = pilaRecolecciones;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -23,14 +23,13 @@ public class ReporteListaCostos extends javax.swing.JInternalFrame {
         this.setCursor(cursorC);
 
         DefaultTableModel modelo = new DefaultTableModel();
-        String[] cabecera = {"Nombre", "Area Remota", "Seguro", "Paquete Fragil", "Excesos de Peso", "Sobre Dimension"};
+        String[] cabecera = {"Número de guía", "Fecha de Paquete Listo", "Hora de Paquete Listo", "Fecha de Recoleccion", "Hora de Recoleccion"};
         modelo.setColumnIdentifiers(cabecera);
 
-        Object[] elementos = listaCostos.imprimirLista();
-
+        Object[] elementos = pilaRecolecciones.imprimirPila();
         for (Object elemento : elementos) {
-            ListaCostos lista = (ListaCostos) elemento;
-            Object[] datos = {lista.getNombre(), lista.getAreaRemota(), lista.getSeguro(), lista.getPaqueteFragil(), lista.getExcesoPeso(), lista.getSobreDimension()};
+            Recolecciones recolecciones = (Recolecciones) elemento;
+            Object[] datos = {recolecciones.getNumeroGuia(), recolecciones.getFechaPaqueteListo(), recolecciones.getHoraPaqueteListo(), recolecciones.getFechaRecoleccion(), recolecciones.getHoraRecoleccion()};
             modelo.addRow(datos);
         }
         tbInfo.setModel(modelo);
@@ -68,7 +67,7 @@ public class ReporteListaCostos extends javax.swing.JInternalFrame {
 
         lbTitulo.setFont(new java.awt.Font("Nirmala UI", 1, 18)); // NOI18N
         lbTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitulo.setText("INFORMACIÓN DE LISTA DE COSTOS:");
+        lbTitulo.setText("INFORMACIÓN DE ENVÍOS:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -44,6 +44,10 @@ public class ReporteListaCostosDetalle extends javax.swing.JInternalFrame {
         tbInfo = new javax.swing.JTable();
         lbTitulo = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
+
         tbInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},

@@ -10,9 +10,9 @@ public class Envio {
     private double largo;
     private double ancho;
     private String user;
-    private int status;
+    private String status;
 
-    public Envio(String numeroGuia, String sucursalOrigen, String sucursalDestino, double peso, double alto, double largo, double ancho, String user, int status) {
+    public Envio(String numeroGuia, String sucursalOrigen, String sucursalDestino, double peso, double alto, double largo, double ancho, String user, String status) {
         this.numeroGuia = numeroGuia;
         this.sucursalOrigen = sucursalOrigen;
         this.sucursalDestino = sucursalDestino;
@@ -88,13 +88,13 @@ public class Envio {
         this.user = user;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
-
+    
     
 }

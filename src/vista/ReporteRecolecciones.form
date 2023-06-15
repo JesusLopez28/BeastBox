@@ -27,8 +27,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbTitulo" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="850" max="-2" attributes="0"/>
+                  <Component id="lbTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" min="-2" pref="850" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -72,7 +72,7 @@
           <Font name="Nirmala UI" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="INFORMACI&#xd3;N DE USUARIOS:"/>
+        <Property name="text" type="java.lang.String" value="INFORMACI&#xd3;N DE ENV&#xcd;OS:"/>
       </Properties>
     </Component>
   </SubComponents>

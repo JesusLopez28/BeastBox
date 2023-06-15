@@ -12,7 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Envio;
 import modelo.ListaCostos;
-import modelo.ListaCostosDetalle;
 import modelo.Usuario;
 
 public class CotizarEnvio extends javax.swing.JFrame {
@@ -400,6 +399,9 @@ public class CotizarEnvio extends javax.swing.JFrame {
         }
 
         peso = (float) SliderPeso.getValue();
+        alto = (float) SliderAltura.getValue();
+        largo = (float) SliderLargo.getValue();
+        ancho = (float) SliderAncho.getValue();
         float precio = listaCostosDetalle.obtenerPrecio(lista, sucursalOrigen, servicio, peso);
 
         if (chPaqueteFragil.isSelected()) {
@@ -418,7 +420,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
             precio += dimension;
         }
 
-        if (jboxDestino.equals("Tampico")) {
+        if (sucursalDestino.equals("Tampico")) {
             precio += area;
         }
 
@@ -447,7 +449,7 @@ public class CotizarEnvio extends javax.swing.JFrame {
                 sb.append(digit);
             }
             String numeroGuia = sb.toString();
-            pilaEnvio.push(new Envio(numeroGuia, sucursalOrigen, sucursalDestino, peso, alto, largo, ancho, user, 1));
+            pilaEnvio.push(new Envio(numeroGuia, sucursalOrigen, sucursalDestino, peso, alto, largo, ancho, user, "Generado"));
             JOptionPane.showMessageDialog(null, "Se generó la guía correctamente.", "Generar guía", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "No se generó la guía.", "Generar guía", JOptionPane.INFORMATION_MESSAGE);
