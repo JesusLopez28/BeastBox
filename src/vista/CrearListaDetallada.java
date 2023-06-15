@@ -19,7 +19,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         this.listaCostoDetalle = listaCostoDetalle;
         this.listaCostos = listaCostos;
         initComponents();
-
+        this.llenarCombos();
         String cursor = "src/imagenes/seleccion.png";
         ImageIcon imgCursor = new ImageIcon(cursor);
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
@@ -52,7 +52,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
         lblPrecio = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtZona = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         lblPesoMinimo = new javax.swing.JLabel();
         lblZona1 = new javax.swing.JLabel();
@@ -62,6 +61,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         txtMaximo = new javax.swing.JTextField();
         txtMinimo = new javax.swing.JTextField();
         comboLista = new javax.swing.JComboBox();
+        comboSucursal = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -99,7 +99,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         btnRecuperar.setBackground(new java.awt.Color(150, 166, 217));
         btnRecuperar.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
         btnRecuperar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRecuperar.setText("OLVIDÉ MI CONTRASEÑA");
+        btnRecuperar.setText("REGRESAR");
         btnRecuperar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecuperarActionPerformed(evt);
@@ -107,7 +107,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         });
 
         lblZona.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        lblZona.setText("Zona:");
+        lblZona.setText("Sucursal:");
 
         txtPrecio.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
 
@@ -116,13 +116,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("AGREGAR ELEMENTO ");
-
-        txtZona.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        txtZona.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtZonaActionPerformed(evt);
-            }
-        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paquetes (1).png"))); // NOI18N
         jLabel3.setText(" ");
@@ -153,6 +146,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
         comboLista.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         comboLista.setForeground(new java.awt.Color(255, 255, 255));
 
+        comboSucursal.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        comboSucursal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guadalajara", "Monterrey", "Tampico", "Cancún", "Puerto Vallarta", "Mazatlán" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -162,28 +158,19 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 177, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregar)
-                .addGap(227, 227, 227))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(btnRecuperar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboLista, 0, 243, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblZona)
-                        .addComponent(lblNombreLista)
-                        .addComponent(lblPesoMaximo)
-                        .addComponent(lblPrecio)
-                        .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                        .addComponent(txtZona)
-                        .addComponent(txtMaximo)))
+                    .addComponent(lblZona)
+                    .addComponent(lblNombreLista)
+                    .addComponent(lblPesoMaximo)
+                    .addComponent(lblPrecio)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(txtMaximo)
+                    .addComponent(comboSucursal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
@@ -202,6 +189,15 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                         .addGap(203, 203, 203)
                         .addComponent(jLabel3)
                         .addGap(25, 25, 25))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnAgregar)
+                        .addGap(227, 227, 227))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnRecuperar)
+                        .addGap(241, 241, 241))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,8 +233,8 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                             .addComponent(lblZona1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtZona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblPrecio))
                     .addComponent(lblListaPrecio, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -253,9 +249,9 @@ public class CrearListaDetallada extends javax.swing.JFrame {
                             .addComponent(txtListaPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(46, 46, 46)
                 .addComponent(btnAgregar)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(btnRecuperar)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -272,7 +268,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,31 +288,33 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRecuperarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarActionPerformed
-
+        this.disable();
     }//GEN-LAST:event_btnRecuperarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String servicio, listaCostos, auxString, auxString1, auxString3, auxString4;
+        String servicio, auxString, auxString1, sucursal, auxString4;
         float pesoMinimo, pesoMaximo, zona, precio;
 
-        listaCostos = "";
+        String listaC = "";
         servicio = txtServicio.getText();
         auxString = txtMinimo.getText();
         auxString1 = txtMaximo.getText();
-        auxString3 = txtZona.getText();
+        sucursal = "";
         auxString4 = txtPrecio.getText();
 
         try {
             if (comboLista.getSelectedItem() != null) {
-                listaCostos = (String) comboLista.getSelectedItem();
+                listaC = (String) comboLista.getSelectedItem();
+            }
+            if (comboSucursal.getSelectedItem() != null) {
+                sucursal = (String) comboSucursal.getSelectedItem();
             }
             pesoMinimo = Float.parseFloat(auxString);
             pesoMaximo = Float.parseFloat(auxString1);
-            zona = Float.parseFloat(auxString3);
             precio = Float.parseFloat(auxString4);
 
-            if (!servicio.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
-                listaCostoDetalle.insertar(new ListaCostosDetalle(pesoMinimo, pesoMaximo, zona, servicio, precio, listaCostos));
+            if (!servicio.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !sucursal.isEmpty() && !auxString4.isEmpty()) {
+                listaCostoDetalle.insertar(new ListaCostosDetalle(pesoMinimo, pesoMaximo, sucursal, servicio, precio, listaC));
                 JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -325,10 +323,6 @@ public class CrearListaDetallada extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Los campos de peso mínimo, peso máximo, zona y precio deben contener valores numéricos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void txtZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZonaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtZonaActionPerformed
 
     private void txtServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtServicioActionPerformed
         // TODO add your handling code here:
@@ -365,6 +359,7 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRecuperar;
     private javax.swing.JComboBox comboLista;
+    private javax.swing.JComboBox comboSucursal;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -386,6 +381,5 @@ public class CrearListaDetallada extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtRespuesta;
     private javax.swing.JTextField txtServicio;
-    private javax.swing.JTextField txtZona;
     // End of variables declaration//GEN-END:variables
 }

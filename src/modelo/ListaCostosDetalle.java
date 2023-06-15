@@ -4,15 +4,15 @@ public class ListaCostosDetalle{
 
     private float pesoMinimo;
     private float pesoMaximo;
-    private float zona;
+    private String sucursal;
     private String servicio;
     private float precio;
     private String listaCostos;
 
-    public ListaCostosDetalle(float pesoMinimo, float pesoMaximo, float zona, String servicio, float precio, String listaCostos) {
+    public ListaCostosDetalle(float pesoMinimo, float pesoMaximo, String sucursal, String servicio, float precio, String listaCostos) {
         this.pesoMinimo = pesoMinimo;
         this.pesoMaximo = pesoMaximo;
-        this.zona = zona;
+        this.sucursal = sucursal;
         this.servicio = servicio;
         this.precio = precio;
         this.listaCostos = listaCostos;
@@ -34,12 +34,12 @@ public class ListaCostosDetalle{
         this.pesoMaximo = pesoMaximo;
     }
 
-    public float getZona() {
-        return zona;
+    public String getSucursal() {
+        return sucursal;
     }
 
-    public void setZona(float zona) {
-        this.zona = zona;
+    public void setSucursal(String sucursal) {
+        this.sucursal = sucursal;
     }
 
     public String getServicio() {
@@ -65,6 +65,6 @@ public class ListaCostosDetalle{
     public void setListaCostos(String listaCostos) {
         this.listaCostos = listaCostos;
     }
-  
+
     
 }

@@ -412,14 +412,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemReporteLCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteLCostosActionPerformed
         // TODO add your handling code here:
-        ReporteListaCostos reporteListaCostos = new ReporteListaCostos();
+        ReporteListaCostos reporteListaCostos = new ReporteListaCostos(listaCostos);
         destPane.add(reporteListaCostos);
         reporteListaCostos.show();
     }//GEN-LAST:event_itemReporteLCostosActionPerformed
 
     private void itemReporteLCostosDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteLCostosDetalleActionPerformed
         // TODO add your handling code here:
-        ReporteListaCostosDetalle reporteListaCostosDetalle = new ReporteListaCostosDetalle();
+        ReporteListaCostosDetalle reporteListaCostosDetalle = new ReporteListaCostosDetalle(listaCostosDetalle);
         destPane.add(reporteListaCostosDetalle);
         reporteListaCostosDetalle.show();
     }//GEN-LAST:event_itemReporteLCostosDetalleActionPerformed
