@@ -7,16 +7,19 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.ListaCostos;
 import modelo.Usuario;
 
 public class RegistroUsuarios extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
+    ListaEnlazada listaCostos;
 
-    public RegistroUsuarios(ListaEnlazada listaUsuarios) {
+    public RegistroUsuarios(ListaEnlazada listaUsuarios, ListaEnlazada listaCostos) {
         this.listaUsuarios = listaUsuarios;
+        this.listaCostos = listaCostos;
         initComponents();
-
+        this.llenarCombos();
         String cursor = "src/imagenes/seleccion.png";
         ImageIcon imgCursor = new ImageIcon(cursor);
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
@@ -53,9 +56,9 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         txtRes = new javax.swing.JTextField();
         lbLC = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtLista = new javax.swing.JTextField();
         lbR2 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        comboLista = new javax.swing.JComboBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -118,8 +121,6 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel2.setText("REGISTRO DE USUARIOS");
 
-        txtLista.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-
         lbR2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbR2.setText("Respuesta:");
 
@@ -132,6 +133,10 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
+
+        comboLista.setBackground(new java.awt.Color(150, 166, 217));
+        comboLista.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        comboLista.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,7 +165,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                                 .addComponent(comboNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(comboPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtRes)
-                                .addComponent(txtLista, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(comboLista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(131, 131, 131)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +207,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbLC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAgregar)
                 .addGap(18, 18, 18)
@@ -244,16 +249,18 @@ public class RegistroUsuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String user, contraseña, respuesta, lista;
+        String user, contraseña, respuesta, lista = "";
         String pregunta = "";
         String seleccion = comboNivel.getSelectedItem().toString();
         int level = 0;
         user = txtUser.getText();
         contraseña = txtContraseña.getText();
         respuesta = txtRes.getText();
-        lista = txtLista.getText();
         if (comboPregunta.getSelectedItem() != null) {
             pregunta = (String) comboPregunta.getSelectedItem();
+        }
+        if (comboLista.getSelectedItem() != null) {
+            lista = (String) comboLista.getSelectedItem();
         }
         switch (seleccion) {
             case "Usuario":
@@ -277,6 +284,15 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    private void llenarCombos() {
+        Object[] auxA = listaCostos.imprimirLista();
+
+        for (Object alumno : auxA) {
+            ListaCostos a = (ListaCostos) alumno;
+            comboLista.addItem(a.getNombre());
+        }
+    }
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -298,6 +314,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox comboLista;
     private javax.swing.JComboBox comboNivel;
     private javax.swing.JComboBox comboPregunta;
     private javax.swing.JComboBox jComboBox1;
@@ -314,7 +331,6 @@ public class RegistroUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel lbR2;
     private javax.swing.JLabel lbU;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtLista;
     private javax.swing.JTextField txtRes;
     private javax.swing.JTextField txtRespuesta;
     private javax.swing.JTextField txtUser;

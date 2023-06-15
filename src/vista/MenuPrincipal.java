@@ -7,17 +7,18 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import modelo.ListaCostos;
 import modelo.Usuario;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
     ListaEnlazada listaUsuarios;
     Pila pilaEnvios = new Pila(500);
-    Pila pilaCostos = new Pila(50);
-    Pila pilaCostosDetalle = new Pila(50);
+    ListaEnlazada listaCostos = new ListaEnlazada(100);
+    ListaEnlazada listaCostosDetalle = new ListaEnlazada(100);
     Pila pilaRecibidos = new Pila(500);
     Pila pilaRecolecciones = new Pila(500);
-    String user;
+    public String user;
 
     public MenuPrincipal(ListaEnlazada listaUsuarios, String user) {
         this.listaUsuarios = listaUsuarios;
@@ -42,6 +43,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             itemRegistrarUsuarios.setVisible(false);
             menuListas.setVisible(false);
             menuReportes.setVisible(false);
+        }
+        
+        if(listaCostos.estaVacia()){
+            listaCostos.insertar(new ListaCostos("MENUDEO", 200, 200, 200, 200, 200));
+            listaCostos.insertar(new ListaCostos("MAYOREO", 100, 100, 100, 100, 100));
         }
     }
 
@@ -113,7 +119,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(51, 51, 51)
                 .addComponent(jLabel5)
-                .addGap(0, 58, Short.MAX_VALUE))
+                .addGap(0, 62, Short.MAX_VALUE))
         );
 
         destPane.setBackground(new java.awt.Color(242, 242, 240));
@@ -149,6 +155,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemActualizarInfo.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemActualizarInfo.setText("Actualizar Información");
+        itemActualizarInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemActualizarInfoActionPerformed(evt);
+            }
+        });
         menuUsuarios.add(itemActualizarInfo);
 
         itemCerrarSesion.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -168,26 +179,56 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemCotizar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemCotizar.setText("Cotizar");
+        itemCotizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCotizarActionPerformed(evt);
+            }
+        });
         menuEnvios.add(itemCotizar);
 
         itemCancelar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemCancelar.setText("Cancelar");
+        itemCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCancelarActionPerformed(evt);
+            }
+        });
         menuEnvios.add(itemCancelar);
 
         itemRegistrarEntrada.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemRegistrarEntrada.setText("Registrar entrada");
+        itemRegistrarEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarEntradaActionPerformed(evt);
+            }
+        });
         menuEnvios.add(itemRegistrarEntrada);
 
         itemRegistrarEnvio.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemRegistrarEnvio.setText("Registrar envío");
+        itemRegistrarEnvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarEnvioActionPerformed(evt);
+            }
+        });
         menuEnvios.add(itemRegistrarEnvio);
 
         itemRegistrarLlegada.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemRegistrarLlegada.setText("Registrar llegada");
+        itemRegistrarLlegada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarLlegadaActionPerformed(evt);
+            }
+        });
         menuEnvios.add(itemRegistrarLlegada);
 
         itemRegistrarSalida.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemRegistrarSalida.setText("Registrar salida");
+        itemRegistrarSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarSalidaActionPerformed(evt);
+            }
+        });
         menuEnvios.add(itemRegistrarSalida);
 
         jMenuBar1.add(menuEnvios);
@@ -222,6 +263,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemReporteUsuarios.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemReporteUsuarios.setText("Reporte usuarios");
+        itemReporteUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteUsuariosActionPerformed(evt);
+            }
+        });
         menuReportes.add(itemReporteUsuarios);
 
         itemReporteEnvios.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -235,18 +281,38 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         itemReporteLCostos.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemReporteLCostos.setText("Reporte lista de costos");
+        itemReporteLCostos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteLCostosActionPerformed(evt);
+            }
+        });
         menuReportes.add(itemReporteLCostos);
 
         itemReporteLCostosDetalle.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemReporteLCostosDetalle.setText("Reporte lista de costos detallada");
+        itemReporteLCostosDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteLCostosDetalleActionPerformed(evt);
+            }
+        });
         menuReportes.add(itemReporteLCostosDetalle);
 
         itemReporteRecolecciones.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemReporteRecolecciones.setText("Reporte recolecciones");
+        itemReporteRecolecciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteRecoleccionesActionPerformed(evt);
+            }
+        });
         menuReportes.add(itemReporteRecolecciones);
 
         itemReporteRecibidas.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         itemReporteRecibidas.setText("Reporte recibidas");
+        itemReporteRecibidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteRecibidasActionPerformed(evt);
+            }
+        });
         menuReportes.add(itemReporteRecibidas);
 
         jMenuBar1.add(menuReportes);
@@ -288,23 +354,74 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemRegistrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarUsuariosActionPerformed
         // TODO add your handling code here:
-        RegistroUsuarios registroUsuarios = new RegistroUsuarios(listaUsuarios);
+        RegistroUsuarios registroUsuarios = new RegistroUsuarios(listaUsuarios, listaCostos);
         registroUsuarios.setVisible(true);
         registroUsuarios.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemRegistrarUsuariosActionPerformed
 
     private void itemListaCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListaCostosActionPerformed
         // TODO add your handling code here:
-        CrearLista crearLista = new CrearLista(pilaCostos);
+        CrearLista crearLista = new CrearLista(listaCostos);
         crearLista.setVisible(true);
         crearLista.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemListaCostosActionPerformed
 
     private void itemListaCostosDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListaCostosDetalleActionPerformed
-        CrearListaDetallada crearListaDetallada  = new CrearListaDetallada(pilaCostosDetalle);
+        CrearListaDetallada crearListaDetallada = new CrearListaDetallada(listaCostosDetalle);
         crearListaDetallada.setVisible(true);
         crearListaDetallada.setLocationRelativeTo(null);
     }//GEN-LAST:event_itemListaCostosDetalleActionPerformed
+
+    private void itemActualizarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemActualizarInfoActionPerformed
+        // TODO add your handling code here:
+        ActualizacionRegistro actualizacionRegistro = new ActualizacionRegistro(listaUsuarios, listaCostos);
+        actualizacionRegistro.setVisible(true);
+        actualizacionRegistro.setLocationRelativeTo(null);
+    }//GEN-LAST:event_itemActualizarInfoActionPerformed
+
+    private void itemCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCotizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemCotizarActionPerformed
+
+    private void itemCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemCancelarActionPerformed
+
+    private void itemRegistrarEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEnvioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemRegistrarEnvioActionPerformed
+
+    private void itemRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemRegistrarEntradaActionPerformed
+
+    private void itemRegistrarLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarLlegadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemRegistrarLlegadaActionPerformed
+
+    private void itemRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarSalidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemRegistrarSalidaActionPerformed
+
+    private void itemReporteUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemReporteUsuariosActionPerformed
+
+    private void itemReporteLCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteLCostosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemReporteLCostosActionPerformed
+
+    private void itemReporteLCostosDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteLCostosDetalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemReporteLCostosDetalleActionPerformed
+
+    private void itemReporteRecoleccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecoleccionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemReporteRecoleccionesActionPerformed
+
+    private void itemReporteRecibidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecibidasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemReporteRecibidasActionPerformed
 
     public static void main(String args[]) {
         try {

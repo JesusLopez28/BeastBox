@@ -1,7 +1,6 @@
 package vista;
 
 import controlador.ListaEnlazada;
-import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
@@ -9,14 +8,13 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.ListaCostos;
-import modelo.Usuario;
 
 public class CrearLista extends javax.swing.JFrame {
     
-    Pila pilaCostos;
+    ListaEnlazada listaCostos;
     
-    public CrearLista(Pila pilaCostos) {
-        this.pilaCostos = pilaCostos;
+    public CrearLista(ListaEnlazada listaCostos) {
+        this.listaCostos = listaCostos;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
@@ -275,7 +273,7 @@ public class CrearLista extends javax.swing.JFrame {
         sobreDimension = Float.parseFloat(auxString4);
         
         if (!nombre.isEmpty() && !auxString.isEmpty() && !auxString1.isEmpty() && !auxString2.isEmpty() && !auxString3.isEmpty() && !auxString4.isEmpty()) {
-            pilaCostos.push(new ListaCostos(nombre, areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension));
+            listaCostos.insertar(new ListaCostos(nombre, areaRemota, seguro, paqueteFragil, excesoPeso, sobreDimension));
             JOptionPane.showMessageDialog(null, "Los datos se han agregado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Debe completar todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
