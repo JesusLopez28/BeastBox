@@ -56,5 +56,4 @@ public class Recibidos{
         this.HoraEntrega = HoraEntrega;
     }
 
-
 }

@@ -7,7 +7,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Envio;
+import modelo.Recolecciones;
 
 public class ReporteRecolecciones extends javax.swing.JInternalFrame {
 
@@ -23,14 +23,13 @@ public class ReporteRecolecciones extends javax.swing.JInternalFrame {
         this.setCursor(cursorC);
 
         DefaultTableModel modelo = new DefaultTableModel();
-        String[] cabecera = {"Número de guía", "Sucursal Origen", "Sucursal Destino", "Peso", "Alto", "Largo", "Ancho", "Usuario", "Estatus"};
+        String[] cabecera = {"Número de guía", "Fecha de Paquete Listo", "Hora de Paquete Listo", "Fecha de Recoleccion", "Hora de Recoleccion"};
         modelo.setColumnIdentifiers(cabecera);
 
         Object[] elementos = pilaRecolecciones.imprimirPila();
-
         for (Object elemento : elementos) {
-            Envio envio = (Envio) elemento;
-            Object[] datos = {envio.getNumeroGuia(), envio.getSucursalOrigen(), envio.getSucursalDestino(), envio.getPeso(), envio.getAlto(), envio.getAncho(), envio.getUser(), envio.getStatus()};
+            Recolecciones recolecciones = (Recolecciones) elemento;
+            Object[] datos = {recolecciones.getNumeroGuia(), recolecciones.getFechaPaqueteListo(), recolecciones.getHoraPaqueteListo(), recolecciones.getFechaRecoleccion(), recolecciones.getHoraRecoleccion()};
             modelo.addRow(datos);
         }
         tbInfo.setModel(modelo);
