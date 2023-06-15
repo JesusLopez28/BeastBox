@@ -26,7 +26,7 @@ public class ReporteUsuarios extends javax.swing.JInternalFrame {
         modelo.setColumnIdentifiers(cabecera);
 
         Object[] elementos = listaUsuarios.imprimirLista();
-        
+
         for (Object elemento : elementos) {
             Usuario user = (Usuario) elemento;
             Object[] datos = {user.getUser(), user.getPassword(), user.getPregunta(), user.getRespuesta(), user.getLevel(), user.getListaCostos()};
@@ -98,7 +98,21 @@ public class ReporteUsuarios extends javax.swing.JInternalFrame {
         int numRenglon = tbInfo.getSelectedRow();
         int numColmuna = tbInfo.getSelectedColumn();
         String valor = tbInfo.getValueAt(numRenglon, numColmuna).toString();
-        JOptionPane.showMessageDialog(null, "Valor: " + valor + "\n" + "Renglón/Columna: " + numRenglon + ", " + numColmuna);
+
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea eliminar al usuario seleccionado?", "Eliminar usuario", JOptionPane.YES_NO_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            Usuario usuarioEncontrado = (Usuario) listaUsuarios.buscarPorAtributo(valor);
+
+            if (usuarioEncontrado != null) {
+                listaUsuarios.eliminar(usuarioEncontrado);
+                JOptionPane.showMessageDialog(null, "Usuario eliminado correctamente.", "Eliminar usuario", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario no se encontró en la lista.", "Eliminar usuario", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se eliminó al usuario.", "Eliminar usuario", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_tbInfoMouseClicked
 
 

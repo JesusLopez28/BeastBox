@@ -403,56 +403,60 @@ public class CotizarEnvio extends javax.swing.JFrame {
         largo = (float) SliderLargo.getValue();
         ancho = (float) SliderAncho.getValue();
         float precio = listaCostosDetalle.obtenerPrecio(lista, sucursalOrigen, servicio, peso);
-
-        if (chPaqueteFragil.isSelected()) {
-            precio += fragil;
-        }
-
-        if (chSeguro.isSelected()) {
-            precio += seguro;
-        }
-
-        if (peso > 100) {
-            precio += execeso;
-        }
-
-        if (alto > 100 || largo > 100 || ancho > 100) {
-            precio += dimension;
-        }
-
-        if (sucursalDestino.equals("Tampico")) {
-            precio += area;
-        }
-
-        float subtotal = precio;
-        float iva = (float) (subtotal * (0.16));
-        float total = iva + subtotal;
-        DecimalFormat formatoPrecio = new DecimalFormat("#0.00");
-        String fSub = formatoPrecio.format(subtotal);
-        String fIva = formatoPrecio.format(iva);
-        String fTotal = formatoPrecio.format(total);
-
-        String mensaje = "Subtotal: $" + fSub + "\n";
-        mensaje += "IVA (16%): $" + fIva + "\n";
-        mensaje += "Total: $" + fTotal + "\n";
-
-        mensaje += "\n¿Desea generar la guía?";
-
-        int opcion = JOptionPane.showConfirmDialog(null, mensaje, "Desglose de precios", JOptionPane.YES_NO_OPTION);
-
-        if (opcion == JOptionPane.YES_OPTION) {
-            Random random = new Random();
-            StringBuilder sb = new StringBuilder();
-
-            for (int i = 0; i < 10; i++) {
-                int digit = random.nextInt(10);
-                sb.append(digit);
-            }
-            String numeroGuia = sb.toString();
-            pilaEnvio.push(new Envio(numeroGuia, sucursalOrigen, sucursalDestino, peso, alto, largo, ancho, user, "Generado"));
-            JOptionPane.showMessageDialog(null, "Se generó la guía correctamente.", "Generar guía", JOptionPane.INFORMATION_MESSAGE);
+        if (precio == 0) {
+            JOptionPane.showMessageDialog(null, "No hay datos en ese rango de peso para poder generar el envío.", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "No se generó la guía.", "Generar guía", JOptionPane.INFORMATION_MESSAGE);
+
+            if (chPaqueteFragil.isSelected()) {
+                precio += fragil;
+            }
+
+            if (chSeguro.isSelected()) {
+                precio += seguro;
+            }
+
+            if (peso > 100) {
+                precio += execeso;
+            }
+
+            if (alto > 100 || largo > 100 || ancho > 100) {
+                precio += dimension;
+            }
+
+            if (sucursalDestino.equals("Tampico")) {
+                precio += area;
+            }
+
+            float subtotal = precio;
+            float iva = (float) (subtotal * (0.16));
+            float total = iva + subtotal;
+            DecimalFormat formatoPrecio = new DecimalFormat("#0.00");
+            String fSub = formatoPrecio.format(subtotal);
+            String fIva = formatoPrecio.format(iva);
+            String fTotal = formatoPrecio.format(total);
+
+            String mensaje = "Subtotal: $" + fSub + "\n";
+            mensaje += "IVA (16%): $" + fIva + "\n";
+            mensaje += "Total: $" + fTotal + "\n";
+
+            mensaje += "\n¿Desea generar la guía?";
+
+            int opcion = JOptionPane.showConfirmDialog(null, mensaje, "Desglose de precios", JOptionPane.YES_NO_OPTION);
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                Random random = new Random();
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < 10; i++) {
+                    int digit = random.nextInt(10);
+                    sb.append(digit);
+                }
+                String numeroGuia = sb.toString();
+                pilaEnvio.push(new Envio(numeroGuia, sucursalOrigen, sucursalDestino, peso, alto, largo, ancho, user, "Generado"));
+                JOptionPane.showMessageDialog(null, "Se generó la guía correctamente.", "Generar guía", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se generó la guía.", "Generar guía", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnCotizarActionPerformed
 

@@ -386,9 +386,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemCotizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCotizarActionPerformed
         // TODO add your handling code here:
-        CotizarEnvio cotizarEnvio = new CotizarEnvio(pilaEnvios, listaCostos, listaCostosDetalle, listaUsuarios, user);
-        cotizarEnvio.setVisible(true);
-        cotizarEnvio.setLocationRelativeTo(null);
+        if (!listaCostosDetalle.estaVacia()) {
+            CotizarEnvio cotizarEnvio = new CotizarEnvio(pilaEnvios, listaCostos, listaCostosDetalle, listaUsuarios, user);
+            cotizarEnvio.setVisible(true);
+            cotizarEnvio.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "La lista de costos detallada está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemCotizarActionPerformed
 
     private void itemCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCancelarActionPerformed
