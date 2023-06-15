@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import modelo.ListaCostos;
 import modelo.Usuario;
 
@@ -339,9 +340,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemReporteEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteEnviosActionPerformed
         // TODO add your handling code here:
-        ReporteEnvios reporteEnvios = new ReporteEnvios(pilaEnvios);
-        destPane.add(reporteEnvios);
-        reporteEnvios.show();
+        if (!pilaEnvios.estaVacia()) {
+            ReporteEnvios reporteEnvios = new ReporteEnvios(pilaEnvios);
+            destPane.add(reporteEnvios);
+            reporteEnvios.show();
+        } else {
+            JOptionPane.showMessageDialog(null, "La pila envíos está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemReporteEnviosActionPerformed
 
     private void itemCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarSesionActionPerformed
@@ -388,37 +393,57 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCancelarActionPerformed
         // TODO add your handling code here:
-        CancelarEnvio cancelarEnvio = new CancelarEnvio(pilaEnvios);
-        cancelarEnvio.setVisible(true);
-        cancelarEnvio.setLocationRelativeTo(null);
+        if (!pilaEnvios.estaVacia()) {
+            CancelarEnvio cancelarEnvio = new CancelarEnvio(pilaEnvios);
+            cancelarEnvio.setVisible(true);
+            cancelarEnvio.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "La pila envíos está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemCancelarActionPerformed
 
     private void itemRegistrarEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEnvioActionPerformed
         // TODO add your handling code here:
-        RegistroEnvio registroEnvio = new RegistroEnvio(pilaEnvios, pilaRecolecciones);
-        registroEnvio.setVisible(true);
-        registroEnvio.setLocationRelativeTo(null);
+        if (!pilaEnvios.estaVacia()) {
+            RegistroEnvio registroEnvio = new RegistroEnvio(pilaEnvios, pilaRecolecciones);
+            registroEnvio.setVisible(true);
+            registroEnvio.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "La pila envíos está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemRegistrarEnvioActionPerformed
 
     private void itemRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEntradaActionPerformed
         // TODO add your handling code here:
-        RegistroEntrada registroEntrada = new RegistroEntrada(pilaEnvios, pilaRecolecciones);
-        registroEntrada.setVisible(true);
-        registroEntrada.setLocationRelativeTo(null);
+        if (!pilaEnvios.estaVacia()) {
+            RegistroEntrada registroEntrada = new RegistroEntrada(pilaEnvios, pilaRecolecciones);
+            registroEntrada.setVisible(true);
+            registroEntrada.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "La pila envíos está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemRegistrarEntradaActionPerformed
 
     private void itemRegistrarLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarLlegadaActionPerformed
         // TODO add your handling code here:
-        RegistroLlegada registroLlegada = new RegistroLlegada(pilaEnvios, pilaRecibidos);
-        registroLlegada.setVisible(true);
-        registroLlegada.setLocationRelativeTo(null);
+        if (!pilaRecolecciones.estaVacia()) {
+            RegistroLlegada registroLlegada = new RegistroLlegada(pilaEnvios, pilaRecibidos);
+            registroLlegada.setVisible(true);
+            registroLlegada.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "La pila envíos está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemRegistrarLlegadaActionPerformed
 
     private void itemRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarSalidaActionPerformed
         // TODO add your handling code here:
-        RegistroSalida registroSalida = new RegistroSalida(pilaEnvios, pilaRecibidos);
-        registroSalida.setVisible(true);
-        registroSalida.setLocationRelativeTo(null);
+        if (!pilaRecolecciones.estaVacia()) {
+            RegistroSalida registroSalida = new RegistroSalida(pilaEnvios, pilaRecibidos);
+            registroSalida.setVisible(true);
+            registroSalida.setLocationRelativeTo(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "La pila envíos está vacía.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_itemRegistrarSalidaActionPerformed
 
     private void itemReporteUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteUsuariosActionPerformed
