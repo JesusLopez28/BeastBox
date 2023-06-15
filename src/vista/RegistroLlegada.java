@@ -6,7 +6,9 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import modelo.Envio;
+import modelo.Recibidos;
 
 public class RegistroLlegada extends javax.swing.JFrame {
 
@@ -214,6 +216,19 @@ public class RegistroLlegada extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        String nGuia = "";
+        if (comboNumero.getSelectedItem() != null) {
+            nGuia = (String) comboNumero.getSelectedItem();
+        }
+
+        Envio envioEncontrado = (Envio) pilaEnvio.buscarPorAtributo(nGuia);
+        if (envioEncontrado != null) {
+            envioEncontrado.setStatus("Recibido");
+            pilaRecibidos.push(new Recibidos(nGuia, txtFechaLlegada.getText(), txtHora.getText(), "", ""));
+            JOptionPane.showMessageDialog(null, "Envío marcado como recibido.", "Envío recibido", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el envío.", "Envío recibido", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtFechaLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaLlegadaActionPerformed

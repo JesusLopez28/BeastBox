@@ -6,7 +6,9 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import modelo.Envio;
+import modelo.Recolecciones;
 
 public class RegistroEntrada extends javax.swing.JFrame {
 
@@ -209,8 +211,19 @@ public class RegistroEntrada extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        String nGuia = "";
+        if (comboNumero.getSelectedItem() != null) {
+            nGuia = (String) comboNumero.getSelectedItem();
+        }
 
-
+        Envio envioEncontrado = (Envio) pilaEnvio.buscarPorAtributo(nGuia);
+        if (envioEncontrado != null) {
+            envioEncontrado.setStatus("Listo");
+            pilaRecolecciones.push(new Recolecciones(nGuia, "", "", txtFechaListo.getText(), txtHora.getText()));
+            JOptionPane.showMessageDialog(null, "Envío marcado como listo.", "Envío listo", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el envío.", "Envío listo", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtFechaListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaListoActionPerformed

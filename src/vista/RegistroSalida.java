@@ -6,7 +6,9 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import modelo.Envio;
+import modelo.Recibidos;
 
 public class RegistroSalida extends javax.swing.JFrame {
 
@@ -214,6 +216,21 @@ public class RegistroSalida extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        String nGuia = "";
+        if (comboNumero.getSelectedItem() != null) {
+            nGuia = (String) comboNumero.getSelectedItem();
+        }
+
+        Envio envioEncontrado = (Envio) pilaEnvio.buscarPorAtributo(nGuia);
+        Recibidos recibido = (Recibidos) pilaRecibidos.buscarPorAtributo(nGuia);
+        if (envioEncontrado != null && recibido != null) {
+            envioEncontrado.setStatus("Enviado");
+            recibido.setFechaEntrega(txtFechaSalida.getText());
+            recibido.setFechaEntrega(txtHora.getText());
+            JOptionPane.showMessageDialog(null, "Envíado.", "Envío", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el envío.", "Envío", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtFechaSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaSalidaActionPerformed

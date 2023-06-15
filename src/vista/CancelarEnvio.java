@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import modelo.Envio;
 
 public class CancelarEnvio extends javax.swing.JFrame {
@@ -181,7 +182,18 @@ public class CancelarEnvio extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        String nGuia = "";
+        if (comboNumero.getSelectedItem() != null) {
+            nGuia = (String) comboNumero.getSelectedItem();
+        }
 
+        Envio envioEncontrado = (Envio) pilaEnvio.buscarPorAtributo(nGuia);
+        if (envioEncontrado != null) {
+            envioEncontrado.setStatus("Cancelado");
+            JOptionPane.showMessageDialog(null, "Se ha cancelado el envío.", "Cancelación de envío", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró el envío.", "Cancelación de envío", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void llenarCombos() {

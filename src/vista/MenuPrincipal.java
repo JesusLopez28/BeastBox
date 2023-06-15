@@ -405,7 +405,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void itemRegistrarEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEnvioActionPerformed
         // TODO add your handling code here:
         if (!pilaEnvios.estaVacia()) {
-            RegistroEnvio registroEnvio = new RegistroEnvio(pilaEnvios, pilaRecolecciones);
+            RegistroEnvio registroEnvio = new RegistroEnvio(pilaRecolecciones, pilaEnvios);
             registroEnvio.setVisible(true);
             registroEnvio.setLocationRelativeTo(null);
         } else {
@@ -416,7 +416,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void itemRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarEntradaActionPerformed
         // TODO add your handling code here:
         if (!pilaEnvios.estaVacia()) {
-            RegistroEntrada registroEntrada = new RegistroEntrada(pilaEnvios, pilaRecolecciones);
+            RegistroEntrada registroEntrada = new RegistroEntrada(pilaRecolecciones, pilaEnvios);
             registroEntrada.setVisible(true);
             registroEntrada.setLocationRelativeTo(null);
         } else {
@@ -426,8 +426,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemRegistrarLlegadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarLlegadaActionPerformed
         // TODO add your handling code here:
-        if (!pilaRecolecciones.estaVacia()) {
-            RegistroLlegada registroLlegada = new RegistroLlegada(pilaEnvios, pilaRecibidos);
+        if (!pilaEnvios.estaVacia()) {
+            RegistroLlegada registroLlegada = new RegistroLlegada(pilaRecibidos, pilaEnvios);
             registroLlegada.setVisible(true);
             registroLlegada.setLocationRelativeTo(null);
         } else {
@@ -437,8 +437,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarSalidaActionPerformed
         // TODO add your handling code here:
-        if (!pilaRecolecciones.estaVacia()) {
-            RegistroSalida registroSalida = new RegistroSalida(pilaEnvios, pilaRecibidos);
+        if (!pilaEnvios.estaVacia()) {
+            RegistroSalida registroSalida = new RegistroSalida(pilaRecibidos, pilaEnvios);
             registroSalida.setVisible(true);
             registroSalida.setLocationRelativeTo(null);
         } else {
