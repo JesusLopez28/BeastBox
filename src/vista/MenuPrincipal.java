@@ -339,7 +339,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemReporteEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteEnviosActionPerformed
         // TODO add your handling code here:
-        ReporteEnvios reporteEnvios = new ReporteEnvios();
+        ReporteEnvios reporteEnvios = new ReporteEnvios(pilaEnvios);
         destPane.add(reporteEnvios);
         reporteEnvios.show();
     }//GEN-LAST:event_itemReporteEnviosActionPerformed
@@ -424,19 +424,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         reporteListaCostosDetalle.show();
     }//GEN-LAST:event_itemReporteLCostosDetalleActionPerformed
 
-    private void itemReporteRecoleccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecoleccionesActionPerformed
-        // TODO add your handling code here:
-        ReporteRecolecciones reporteRecolecciones = new ReporteRecolecciones();
-        destPane.add(reporteRecolecciones);
-        reporteRecolecciones.show();
-    }//GEN-LAST:event_itemReporteRecoleccionesActionPerformed
-
     private void itemReporteRecibidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecibidasActionPerformed
         // TODO add your handling code here:
-        ReporteRecibidas reporteRecibidas = new ReporteRecibidas();
+        ReporteRecibidas reporteRecibidas = new ReporteRecibidas(pilaRecibidos);
         destPane.add(reporteRecibidas);
         reporteRecibidas.show();
     }//GEN-LAST:event_itemReporteRecibidasActionPerformed
+
+    private void itemReporteRecoleccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecoleccionesActionPerformed
+        // TODO add your handling code here:
+        ReporteRecolecciones reporteRecolecciones = new ReporteRecolecciones(pilaRecolecciones);
+        destPane.add(reporteRecolecciones);
+        reporteRecolecciones.show();
+    }//GEN-LAST:event_itemReporteRecoleccionesActionPerformed
 
     public static void main(String args[]) {
         try {

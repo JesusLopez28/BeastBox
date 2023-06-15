@@ -2,26 +2,26 @@ package modelo;
 
 public class Recolecciones{
 
-    private String numeroG;
+    private String numeroGuia;
     private String fechaRecoleccion;
     private String horaRecoleccion;
     private String fechaPaqueteListo;
     private String horaPaqueteListo;
 
-    public Recolecciones(String numeroG, String fechaRecoleccion, String horaRecoleccion, String fechaPaqueteListo, String horaPaqueteListo) {
-        this.numeroG = numeroG;
+    public Recolecciones(String numeroGuia, String fechaRecoleccion, String horaRecoleccion, String fechaPaqueteListo, String horaPaqueteListo) {
+        this.numeroGuia = numeroGuia;
         this.fechaRecoleccion = fechaRecoleccion;
         this.horaRecoleccion = horaRecoleccion;
         this.fechaPaqueteListo = fechaPaqueteListo;
         this.horaPaqueteListo = horaPaqueteListo;
     }
 
-    public String getNumeroG() {
-        return numeroG;
+    public String getNumeroGuia() {
+        return numeroGuia;
     }
 
-    public void setNumeroG(String numeroGuia) {
-        this.numeroG = numeroGuia;
+    public void setNumeroGuia(String numeroGuia) {
+        this.numeroGuia = numeroGuia;
     }
 
     public String getFechaRecoleccion() {
@@ -55,6 +55,6 @@ public class Recolecciones{
     public void setHoraPaqueteListo(String horaPaqueteListo) {
         this.horaPaqueteListo = horaPaqueteListo;
     }
-    
+
     
 }

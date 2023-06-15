@@ -2,26 +2,26 @@ package modelo;
 
 public class Recibidos{
 
-    private String numeroG;
+    private String numeroGuia;
     private String FechaLlegada;
     private String HoraLlegada;
     private String FechaEntrega;
     private String HoraEntrega;
 
-    public Recibidos(String numeroG, String FechaLlegada, String HoraLlegada, String FechaEntrega, String HoraEntrega) {
-        this.numeroG = numeroG;
+    public Recibidos(String numeroGuia, String FechaLlegada, String HoraLlegada, String FechaEntrega, String HoraEntrega) {
+        this.numeroGuia = numeroGuia;
         this.FechaLlegada = FechaLlegada;
         this.HoraLlegada = HoraLlegada;
         this.FechaEntrega = FechaEntrega;
         this.HoraEntrega = HoraEntrega;
     }
 
-    public String getNumeroG() {
-        return numeroG;
+    public String getNumeroGuia() {
+        return numeroGuia;
     }
 
-    public void setNumeroG(String NumeroGuia) {
-        this.numeroG = NumeroGuia;
+    public void setNumeroGuia(String numeroGuia) {
+        this.numeroGuia = numeroGuia;
     }
 
     public String getFechaLlegada() {
@@ -55,6 +55,6 @@ public class Recibidos{
     public void setHoraEntrega(String HoraEntrega) {
         this.HoraEntrega = HoraEntrega;
     }
-    
-    
+
+
 }
