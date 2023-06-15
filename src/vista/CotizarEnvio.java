@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.ListaEnlazada;
 import controlador.Pila;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -10,9 +11,13 @@ import javax.swing.ImageIcon;
 public class CotizarEnvio extends javax.swing.JFrame {
 
     Pila pilaEnvio;
-    
-    public CotizarEnvio(Pila pilaEnvio) {
+    ListaEnlazada listaCostos;
+    ListaEnlazada listaCostosDetalle;
+
+    public CotizarEnvio(Pila pilaEnvio, ListaEnlazada listaCostos, ListaEnlazada listaCostosDetalle) {
         this.pilaEnvio = pilaEnvio;
+        this.listaCostos = listaCostos;
+        this.listaCostosDetalle = listaCostosDetalle;
         initComponents();
 
         String cursor = "src/imagenes/seleccion.png";
