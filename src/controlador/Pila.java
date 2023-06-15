@@ -63,4 +63,34 @@ public class Pila {
         System.arraycopy(elementos, 0, arreglo, 0, tamaño);
         return arreglo;
     }
+
+    public Object buscarPorAtributo(Object atributo) {
+        if (estaVacia()) {
+            JOptionPane.showMessageDialog(null, "La pila está vacía. No se puede buscar.", "Error", JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
+
+        for (int i = tamaño - 1; i >= 0; i--) {
+            Object elemento = elementos[i];
+            if (elemento.getClass().isArray()) {
+                Object[] arreglo = (Object[]) elemento;
+                if (arreglo.length > 0 && arreglo[0].equals(atributo)) {
+                    return elemento;
+                }
+            } else {
+                try {
+                    java.lang.reflect.Field primerAtributo = elemento.getClass().getDeclaredFields()[0];
+                    primerAtributo.setAccessible(true);
+                    Object valorPrimerAtributo = primerAtributo.get(elemento);
+                    if (valorPrimerAtributo.equals(atributo)) {
+                        return elemento;
+                    }
+                } catch (IllegalAccessException | IndexOutOfBoundsException e) {
+                }
+            }
+        }
+
+        return null;
+    }
+
 }

@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import modelo.Envio;
 
 public class CancelarEnvio extends javax.swing.JFrame {
 
@@ -14,7 +15,7 @@ public class CancelarEnvio extends javax.swing.JFrame {
     public CancelarEnvio(Pila pilaEnvio) {
         this.pilaEnvio = pilaEnvio;
         initComponents();
-
+        this.llenarCombos();
         String cursor = "src/imagenes/seleccion.png";
         ImageIcon imgCursor = new ImageIcon(cursor);
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
@@ -37,11 +38,11 @@ public class CancelarEnvio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lbImagen = new javax.swing.JLabel();
         lbU = new javax.swing.JLabel();
-        btnRestablecer = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
-        txtNumGuia = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        comboNumero = new javax.swing.JComboBox();
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel4.setText("ACTUALIZACIÓN DE ");
@@ -59,13 +60,13 @@ public class CancelarEnvio extends javax.swing.JFrame {
         lbU.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbU.setText("Numero de Guia:");
 
-        btnRestablecer.setBackground(new java.awt.Color(63, 82, 191));
-        btnRestablecer.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        btnRestablecer.setForeground(new java.awt.Color(255, 255, 255));
-        btnRestablecer.setText(" CANCELAR");
-        btnRestablecer.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(63, 82, 191));
+        btnCancelar.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText(" CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestablecerActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -79,40 +80,41 @@ public class CancelarEnvio extends javax.swing.JFrame {
             }
         });
 
-        txtNumGuia.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-
         jLabel5.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel5.setText("CANCELAR ENVIO");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelado (2).png"))); // NOI18N
         jLabel1.setText(" ");
 
+        comboNumero.setBackground(new java.awt.Color(150, 166, 217));
+        comboNumero.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        comboNumero.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbU)
-                            .addComponent(txtNumGuia, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lbImagen)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(lbImagen)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 51, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnRegresar)
-                        .addGap(78, 78, 78))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnRestablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)))
-                .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnRegresar)
+                                .addGap(8, 8, 8)))
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel1))
+                    .addComponent(comboNumero, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lbU)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -122,19 +124,18 @@ public class CancelarEnvio extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lbImagen)
                         .addGap(42, 42, 42))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addComponent(lbU)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lbU)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumGuia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(btnRestablecer)
+                        .addComponent(btnCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRegresar))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -178,9 +179,22 @@ public class CancelarEnvio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void btnRestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestablecerActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRestablecerActionPerformed
+
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void llenarCombos() {
+        Object[] auxA = pilaEnvio.imprimirPila();
+
+        for (Object objeto : auxA) {
+            Envio envio = (Envio) objeto;
+            String estado = envio.getStatus();
+            if (estado.equals("Generado") || estado.equals("Listo")) {
+                comboNumero.addItem(envio.getNumeroGuia());
+            }
+        }
+    }
 
     public static void main(String args[]) {
         try {
@@ -199,8 +213,9 @@ public class CancelarEnvio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton btnRestablecer;
+    private javax.swing.JComboBox comboNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -208,6 +223,5 @@ public class CancelarEnvio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbImagen;
     private javax.swing.JLabel lbU;
-    private javax.swing.JTextField txtNumGuia;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import modelo.Envio;
 
 public class RegistroEntrada extends javax.swing.JFrame {
 
@@ -16,7 +17,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
         this.pilaRecolecciones = pilaRecolecciones;
         this.pilaEnvio = pilaEnvio;
         initComponents();
-
+        this.llenarCombos();
         String cursor = "src/imagenes/seleccion.png";
         ImageIcon imgCursor = new ImageIcon(cursor);
         Cursor cursorC = Toolkit.getDefaultToolkit().createCustomCursor(imgCursor.getImage(), new Point(1, 1), null);
@@ -43,10 +44,10 @@ public class RegistroEntrada extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
         lbR = new javax.swing.JLabel();
-        txtNumGuia = new javax.swing.JTextField();
         lbP = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtHora = new javax.swing.JTextField();
+        comboNumero = new javax.swing.JComboBox();
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
         jLabel4.setText("ACTUALIZACIÓN DE ");
@@ -94,8 +95,6 @@ public class RegistroEntrada extends javax.swing.JFrame {
         lbR.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbR.setText("Fecha de paquete listo:");
 
-        txtNumGuia.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-
         lbP.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         lbP.setText("Hora:");
 
@@ -109,28 +108,14 @@ public class RegistroEntrada extends javax.swing.JFrame {
             }
         });
 
+        comboNumero.setBackground(new java.awt.Color(150, 166, 217));
+        comboNumero.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        comboNumero.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbR)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lbU)
-                                .addComponent(txtFechaListo, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                .addComponent(txtNumGuia)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbP)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(btnRegresar)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(lbImagen)
                 .addGap(50, 50, 50)
@@ -139,6 +124,23 @@ public class RegistroEntrada extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbR)
+                            .addComponent(lbU)
+                            .addComponent(txtFechaListo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbP)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(btnRegresar)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,7 +155,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addComponent(lbU)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNumGuia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbR)
@@ -207,8 +209,8 @@ public class RegistroEntrada extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtFechaListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaListoActionPerformed
@@ -218,6 +220,17 @@ public class RegistroEntrada extends javax.swing.JFrame {
     private void txtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoraActionPerformed
+
+    private void llenarCombos() {
+        Object[] auxA = pilaEnvio.imprimirPila();
+
+        for (Object objeto : auxA) {
+            Envio envio = (Envio) objeto;
+            if (envio.getStatus().equals("Generado")) {
+                comboNumero.addItem(envio.getNumeroGuia());
+            }
+        }
+    }
 
     public static void main(String args[]) {
         try {
@@ -238,6 +251,7 @@ public class RegistroEntrada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox comboNumero;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -248,6 +262,5 @@ public class RegistroEntrada extends javax.swing.JFrame {
     private javax.swing.JLabel lbU;
     private javax.swing.JTextField txtFechaListo;
     private javax.swing.JTextField txtHora;
-    private javax.swing.JTextField txtNumGuia;
     // End of variables declaration//GEN-END:variables
 }
