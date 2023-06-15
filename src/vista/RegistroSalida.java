@@ -224,9 +224,9 @@ public class RegistroSalida extends javax.swing.JFrame {
         Envio envioEncontrado = (Envio) pilaEnvio.buscarPorAtributo(nGuia);
         Recibidos recibido = (Recibidos) pilaRecibidos.buscarPorAtributo(nGuia);
         if (envioEncontrado != null && recibido != null) {
-            envioEncontrado.setStatus("Enviado");
+            envioEncontrado.setStatus("Entregado");
             recibido.setFechaEntrega(txtFechaSalida.getText());
-            recibido.setFechaEntrega(txtHora.getText());
+            recibido.setHoraEntrega(txtHora.getText());
             JOptionPane.showMessageDialog(null, "Envíado.", "Envío", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "No se encontró el envío.", "Envío", JOptionPane.ERROR_MESSAGE);
