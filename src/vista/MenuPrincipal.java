@@ -44,8 +44,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             menuListas.setVisible(false);
             menuReportes.setVisible(false);
         }
-        
-        if(listaCostos.estaVacia()){
+
+        if (listaCostos.estaVacia()) {
             listaCostos.insertar(new ListaCostos("MENUDEO", 200, 200, 200, 200, 200));
             listaCostos.insertar(new ListaCostos("MAYOREO", 100, 100, 100, 100, 100));
         }
@@ -405,22 +405,37 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void itemReporteUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteUsuariosActionPerformed
         // TODO add your handling code here:
+        ReporteUsuarios reporteUsuarios = new ReporteUsuarios(listaUsuarios);
+        destPane.add(reporteUsuarios);
+        reporteUsuarios.show();
     }//GEN-LAST:event_itemReporteUsuariosActionPerformed
 
     private void itemReporteLCostosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteLCostosActionPerformed
         // TODO add your handling code here:
+        ReporteListaCostos reporteListaCostos = new ReporteListaCostos();
+        destPane.add(reporteListaCostos);
+        reporteListaCostos.show();
     }//GEN-LAST:event_itemReporteLCostosActionPerformed
 
     private void itemReporteLCostosDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteLCostosDetalleActionPerformed
         // TODO add your handling code here:
+        ReporteListaCostosDetalle reporteListaCostosDetalle = new ReporteListaCostosDetalle();
+        destPane.add(reporteListaCostosDetalle);
+        reporteListaCostosDetalle.show();
     }//GEN-LAST:event_itemReporteLCostosDetalleActionPerformed
 
     private void itemReporteRecoleccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecoleccionesActionPerformed
         // TODO add your handling code here:
+        ReporteRecolecciones reporteRecolecciones = new ReporteRecolecciones();
+        destPane.add(reporteRecolecciones);
+        reporteRecolecciones.show();
     }//GEN-LAST:event_itemReporteRecoleccionesActionPerformed
 
     private void itemReporteRecibidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteRecibidasActionPerformed
         // TODO add your handling code here:
+        ReporteRecibidas reporteRecibidas = new ReporteRecibidas();
+        destPane.add(reporteRecibidas);
+        reporteRecibidas.show();
     }//GEN-LAST:event_itemReporteRecibidasActionPerformed
 
     public static void main(String args[]) {
